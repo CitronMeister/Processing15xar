@@ -15,7 +15,7 @@ void draw(){
   // background to make the "old" ball disappear - Moller
    background(240, 240, 240);
    
-  if(mouseX>=RectX&&<=RectX+TextSize){
+  if(mouseX >= RectX && mouseX <= RectX + TextSize){
     // Color for the rectangle = purple ish
     fill(#C931B8);
     // the rectangle which has the length and depth of the text size
