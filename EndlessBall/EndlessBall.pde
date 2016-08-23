@@ -1,19 +1,19 @@
-  // Variables - Moller
-  float BallSpeed = random(5,15);
-  float BallDiameter = 50;
-  float BallX = 0 + BallDiameter;
-  float BallY = random(BallDiameter / 2, height - BallDiameter);
-  int TextSize = height/100*33;
-  // Colors - Moller
-  int BackgR = 240;
-  int BackgG = 240;
-  int BackgB = 240;
-  float BallR = random(40,215);
-  float BallG = random(40,215);
-  float BallB = random(40,215);
-  int BoxR = 0;
-  int BoxG = 0;
-  int BoxB = 0;
+// Variables - Moller
+float BallSpeed = random(5,15);
+float BallDiameter = 50;
+float BallX = 0 + BallDiameter;
+float BallY = random(BallDiameter / 2, height - BallDiameter);
+int TextSize = height/100*33;
+// Colors - Moller
+int BackgR = 240;
+int BackgG = 240;
+int BackgB = 240;
+float BallR = random(40,215);
+float BallG = random(40,215);
+float BallB = random(40,215);
+int BoxR = 0;
+int BoxG = 0;
+int BoxB = 0;
   
   
 void setup() {
