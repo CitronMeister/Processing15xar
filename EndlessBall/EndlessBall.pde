@@ -18,7 +18,7 @@ void draw() {
   if(mouseX >= RectX && mouseX <= RectX + TextSize && mouseY >= RectY && mouseY <= RectY + TextSize) {
     
     //ball color = yellow - Moller
-    fill(#DCE55F);
+    fill(#DCE55F); // hex? - Bjørn
     //The ball itself - Moller
     ellipse(BallX, BallY, BallDiameter, BallDiameter);
     
