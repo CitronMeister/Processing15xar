@@ -46,42 +46,42 @@ void draw() {
   popStyle();
   
   pushStyle();
-  fill(255, 255, 0);
+  fill(255, 255, 0); // Yellow
   rect(0, height / 10 * 2, UpgradeWidth, height / 10);
   popStyle();
   
   pushStyle();
-  fill(0, 255, 0);
+  fill(0, 255, 0); // Green
   rect(0, height / 10*3, UpgradeWidth, height / 10);
   popStyle();
   
   pushStyle();
-  fill(0, 255, 255);
+  fill(0, 255, 255); // Turquoise
   rect(0, height / 10*4, UpgradeWidth, height / 10);
   popStyle();
   
   pushStyle();
-  fill(0, 0, 255);
+  fill(0, 0, 255); // Blue
   rect(0, height / 10*5, UpgradeWidth, height / 10);
   popStyle();
   
   pushStyle();
-  fill(127, 0, 255);
+  fill(127, 0, 255); // Deep Purple
   rect(0, height / 10*6, UpgradeWidth, height / 10);
   popStyle();
   
   pushStyle();
-  fill(255, 0, 255);
+  fill(255, 0, 255); // Purple
   rect(0, height / 10*7, UpgradeWidth, height / 10);
   popStyle();
   
   pushStyle();
-  fill(255, 0, 127);
+  fill(255, 0, 127); // Pink
   rect(0, height / 10*8, UpgradeWidth, height / 10);
   popStyle();
   
   pushStyle();
-  fill(128, 128, 128);
+  fill(128, 128, 128); // Grey
   rect(0, height / 10*9, UpgradeWidth, height / 10);
   popStyle();
  // all text for the menu
