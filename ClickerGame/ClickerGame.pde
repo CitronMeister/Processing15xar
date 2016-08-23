@@ -119,7 +119,14 @@ void draw() {
   textSize(24);
   text("Buy Exp", UpgradeWidth / 3.8, (height / 10*9) + height / 10 / 2 + 6);
   popStyle();
- }
+  
+  // Hover over - Bjørn
+  if (mouseX <= 200 && mouseY <= (height / 10*1)) {
+    rect(mouseX + 15, mouseY, width / 8, height / 4);
+  
+  }
+  
+}
 // All Click related actions - Bjørn
 void mousePressed() {
   if(mouseX > UpgradeWidth) {
