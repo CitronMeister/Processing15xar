@@ -1,10 +1,12 @@
 // vars for everything :P - Bjørn
 // nice Lowercase "gold" while uppercase "Upgrade" - Mollermeister
 int gold = 0;
-int UpgradeWidth = 200;
+int upgradeWidth = 200;
 int exp = 0;
 int Multi = 0;
 int expBonus = 0;
+int expToLevel = 100;
+int playerLevel = 1;
 
 // Upgrade cost + price vars - Bjørn
 int redUpgPrice = 1;
@@ -29,63 +31,74 @@ surface.setResizable(true);
 }
 
 void draw() {
+  
   // Background to be changed later :P - Bjørn
   background(0);
-  // golds and exp - Bjørn
-  text("gold: " + gold, UpgradeWidth/2 + width/2, height/15);
-  text("Exp: " + exp, UpgradeWidth/2 + width / 2, height/15 + 10);
+  
+  // gold, level and exp - Bjørn
+  text("gold: " + gold,width/2, height/15);
+  text("Exp: " + exp + "/" + expToLevel,width / 2, height/15 + 15);
+  text("Level: " + playerLevel, width/2, height/ 3 + height / 2);
+  if(exp >= expToLevel) {
+    playerLevel = playerLevel + 1;
+    exp = 0;
+    expToLevel = expToLevel * (playerLevel*2);
+  
+  }
+  
+  
   // Visible Menu with text and buttons - Bjørn
   pushStyle();
   fill(255, 0, 0); // Red
-  rect(0, 0, UpgradeWidth, height / 10);
+  rect(0, 0, upgradeWidth, height / 10);
   popStyle();
   
   pushStyle();
   fill(255, 128, 0); // Orange
-  rect(0, height / 10, UpgradeWidth, height / 10);
+  rect(0, height / 10, upgradeWidth, height / 10);
   popStyle();
   
   pushStyle();
   fill(255, 255, 0); // Yellow
-  rect(0, height / 10 * 2, UpgradeWidth, height / 10);
+  rect(0, height / 10 * 2, upgradeWidth, height / 10);
   popStyle();
   
   pushStyle();
   fill(0, 255, 0); // Green
-  rect(0, height / 10*3, UpgradeWidth, height / 10);
+  rect(0, height / 10*3, upgradeWidth, height / 10);
   popStyle();
   
   pushStyle();
   fill(0, 255, 255); // Turquoise
-  rect(0, height / 10*4, UpgradeWidth, height / 10);
+  rect(0, height / 10*4, upgradeWidth, height / 10);
   popStyle();
   
   pushStyle();
   fill(0, 0, 255); // Blue
-  rect(0, height / 10*5, UpgradeWidth, height / 10);
+  rect(0, height / 10*5, upgradeWidth, height / 10);
   popStyle();
   
   pushStyle();
   fill(127, 0, 255); // Deep Purple
-  rect(0, height / 10*6, UpgradeWidth, height / 10);
+  rect(0, height / 10*6, upgradeWidth, height / 10);
   popStyle();
   
   pushStyle();
   fill(255, 0, 255); // Purple
-  rect(0, height / 10*7, UpgradeWidth, height / 10);
+  rect(0, height / 10*7, upgradeWidth, height / 10);
   popStyle();
   
   pushStyle();
   fill(255, 0, 127); // Pink
-  rect(0, height / 10*8, UpgradeWidth, height / 10);
+  rect(0, height / 10*8, upgradeWidth, height / 10);
   popStyle();
   
   pushStyle();
   fill(128, 128, 128); // Grey
-  rect(0, height / 10*9, UpgradeWidth, height / 10);
+  rect(0, height / 10*9, upgradeWidth, height / 10);
   popStyle();
- // all text for the menu
  
+ // all text for the menu
   pushStyle(); 
   fill(0, 0, 0);
   text("Lvl: ", 10, height / 10 / 2 - 5);
@@ -117,7 +130,7 @@ void draw() {
   popStyle();
   pushStyle();
   textSize(24);
-  text("Buy Exp", UpgradeWidth / 3.8, (height / 10*9) + height / 10 / 2 + 6);
+  text("Buy Exp", upgradeWidth / 3.8, (height / 10*9) + height / 10 / 2 + 6);
   popStyle();
   
   // Hover over - Bjørn
@@ -154,7 +167,7 @@ void draw() {
 }
 // All Click related actions - Bjørn
 void mousePressed() {
-  if(mouseX > UpgradeWidth) {
+  if(mouseX > upgradeWidth) {
     gold = gold + 1 + Multi;
     exp = exp + 1 + expBonus;
   }
@@ -212,6 +225,6 @@ void mousePressed() {
   
   else if(mouseX <= 200 && mouseY >= (height / 10*9) && gold >= 1000) {
     gold = gold - 1000;
-    exp = exp + 50; 
+    exp = exp + 50 * playerLevel;
   }  
 }
