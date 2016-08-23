@@ -1,4 +1,5 @@
 // vars for everything :P - Bjørn
+// nice Lowercase "coin" while uppercase "Upgrade" - Mollermeister
 int coin = 0;
 int UpgradeWidth = 200;
 int exp = 0;
