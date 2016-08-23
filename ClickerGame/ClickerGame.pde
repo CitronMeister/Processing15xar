@@ -159,6 +159,7 @@ void mousePressed() {
     exp = exp + 1 + expBonus;
   }
   
+// All upgrade prices and multipliers
   else if(mouseX <= 200 && mouseY <= (height / 10*1) && gold >= redUpgPrice) {
     gold = gold - redUpgPrice;
     expBonus++;
