@@ -50,11 +50,11 @@ void draw() {
     }
   }else {
     // Color,size and the text itself - Moller
-    fill(#000000);
+    fill(0,0,0);
     textSize(TextSize);
     text("Hold Your mouse in the square", 50, 50);
     // Color for the box and the box itself - Moller
-    fill(#C931B8);
+    fill(201,49,184);
     rect((width/2)-TextSize, (height/2)-TextSize, TextSize*2, TextSize*2);
   }
 }
