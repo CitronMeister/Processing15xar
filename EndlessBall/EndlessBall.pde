@@ -1,12 +1,10 @@
-// Variables - Moller
-  int RectX = 1050;
-  int RectY = 520;
+  // Variables - Moller
   float BallSpeed = random(5,15);
   float BallDiameter = 50;
   float BallX = 0 + BallDiameter;
   float BallY = random(BallDiameter / 2, height - BallDiameter);
   int TextSize = height/100*33;
-  // Colors
+  // Colors - Moller
   int BackgR = 240;
   int BackgG = 240;
   int BackgB = 240;
@@ -17,7 +15,6 @@
   int BoxG = 0;
   int BoxB = 0;
   
-  //Test
   
 void setup() {
   fullScreen();
@@ -29,16 +26,14 @@ void draw() {
   // background to make the "old" ball disappear - Moller
   background(BackgR, BackgG, BackgB);
   
-    
-  if(mouseX >= (width/2) && mouseX <= (width/2) + (TextSize*2) && mouseY >= (height/2) && mouseY <= (height/2) + (TextSize*2)) {
+  if(mouseX >= (width/2)-TextSize && mouseX <= (width/2)-TextSize + (TextSize*2) && mouseY >= (height/2)-TextSize && mouseY <= (height/2)-TextSize + (TextSize*2)) {
     
     //ball color - Moller
     fill(BallR, BallG, BallB); 
     //The ball itself - Moller
     ellipse(BallX, BallY, BallDiameter, BallDiameter);
     
-  
-  // if statement which makes the ball move and change Y coordinat - Moller
+  // if statement which test if ball is on screen - Moller
     if(BallX < width + (BallDiameter/2)) {
       BallX = BallX + BallSpeed;
     }else {
@@ -60,6 +55,6 @@ void draw() {
     text("Hold Your mouse in the square", 50, 50);
     // Color for the box and the box itself - Moller
     fill(#C931B8);
-    rect((width/2), (height/2), TextSize*2, TextSize*2);
+    rect((width/2)-TextSize, (height/2)-TextSize, TextSize*2, TextSize*2);
   }
 }
