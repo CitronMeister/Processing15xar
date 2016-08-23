@@ -1,12 +1,17 @@
+// vars for everything :P - Bjørn
 int coin = 0;
+int UpgradeWidth = 200;
+int exp = 0;
 // defined as placeholders - Bjørn
-int x = 1;
-int y = 1;
+final int x = 1;
+final int y = 1;
+
+
 
 void setup() {
-
-size(1600, 960);
-
+fullScreen();
+//size(1600, 960);
+surface.setResizable(true);
 }
 
 void draw() {
@@ -14,88 +19,101 @@ void draw() {
   // Background to be changed later :P - Bjørn
   background(0);
   
+  // coins and exp - Bjørn
+  text("Coins: " + coin, UpgradeWidth/2 + width/2, 50);
+  
+  
   // Visible Menu with text and buttons - Bjørn
   pushStyle();
   fill(255, 0, 0);
-  rect(0, 96*0, 200, 96);
+  rect(0, 0, UpgradeWidth, height / 10);
   popStyle();
   
   pushStyle();
-  fill(255, 128, 0);
-  rect(0, 96*1, 200, 96);
+  fill(255, 128, 0); // Orange
+  rect(0, height / 10, UpgradeWidth, height / 10);
   popStyle();
   
   pushStyle();
   fill(255, 255, 0);
-  rect(0, 96*2, 200, 96);
+  rect(0, height / 10 * 2, UpgradeWidth, height / 10);
   popStyle();
   
   pushStyle();
   fill(0, 255, 0);
-  rect(0, 96*3, 200, 96);
+  rect(0, height / 10*3, UpgradeWidth, height / 10);
   popStyle();
   
   pushStyle();
   fill(0, 255, 255);
-  rect(0, 96*4, 200, 96);
+  rect(0, height / 10*4, UpgradeWidth, height / 10);
   popStyle();
   
   pushStyle();
   fill(0, 0, 255);
-  rect(0, 96*5, 200, 96);
+  rect(0, height / 10*5, UpgradeWidth, height / 10);
   popStyle();
   
   pushStyle();
   fill(127, 0, 255);
-  rect(0, 96*6, 200, 96);
+  rect(0, height / 10*6, UpgradeWidth, height / 10);
   popStyle();
   
   pushStyle();
   fill(255, 0, 255);
-  rect(0, 96*7, 200, 96);
+  rect(0, height / 10*7, UpgradeWidth, height / 10);
   popStyle();
   
   pushStyle();
   fill(255, 0, 127);
-  rect(0, 96*8, 200, 96);
+  rect(0, height / 10*8, UpgradeWidth, height / 10);
   popStyle();
   
   pushStyle();
   fill(128, 128, 128);
-  rect(0, 96*9, 200, 96);
+  rect(0, height / 10*9, UpgradeWidth, height / 10);
   popStyle();
-  
- text("Lvl: ", 10, 48 - 5);
- text("Cost: ", 10, 48 + 5);
  
- text("Lvl: ", 10, (96*1) + 48 - 5);
- text("Cost: ", 10, (96*1) + 48 + 5);
+  text("Lvl: ", 10, height / 10 / 2 - 5);
+  text("Cost: ", 10, height / 10 / 2 + 5);
  
- text("Lvl: ", 10, (96*2) + 48 - 5);
- text("Cost: ", 10, (96*2) + 48 + 5);
+  text("Lvl: ", 10, (height / 10*1) + height / 10 / 2 - 5);
+  text("Cost: ", 10, (height / 10*1) + height / 10 / 2 + 5);
  
- text("Lvl: ", 10, (96*3) + 48 - 5);
- text("Cost: ", 10, (96*3) + 48 + 5);
+  text("Lvl: ", 10, (height / 10*2) + height / 10 / 2 - 5);
+  text("Cost: ", 10, (height / 10*2) + height / 10 / 2 + 5);
  
- text("Lvl: ", 10, (96*4) + 48 - 5);
- text("Cost: ", 10, (96*4) + 48 + 5);
+  text("Lvl: ", 10, (height / 10*3) + height / 10 / 2 - 5);
+  text("Cost: ", 10, (height / 10*3) + height / 10 / 2 + 5);
  
- text("Lvl: ", 10, (96*5) + 48 - 5);
- text("Cost: ", 10, (96*5) + 48 + 5);
+  text("Lvl: ", 10, (height / 10*4) + height / 10 / 2 - 5);
+  text("Cost: ", 10, (height / 10*4) + height / 10 / 2 + 5);
  
- text("Lvl: ", 10, (96*6) + 48 - 5);
- text("Cost: ", 10, (96*6) + 48 + 5);
+  text("Lvl: ", 10, (height / 10*5) + height / 10 / 2 - 5);
+  text("Cost: ", 10, (height / 10*5) + height / 10 / 2 + 5);
  
- text("Lvl: ", 10, (96*7) + 48 - 5);
- text("Cost: ", 10, (96*7) + 48 + 5);
+  text("Lvl: ", 10, (height / 10*6) + height / 10 / 2 - 5);
+  text("Cost: ", 10, (height / 10*6) + height / 10 / 2 + 5);
  
- text("Lvl: ", 10, (96*8) + 48 - 5);
- text("Cost: ", 10, (96*8) + 48 + 5);
+  text("Lvl: ", 10, (height / 10*7) + height / 10 / 2 - 5);
+  text("Cost: ", 10, (height / 10*7) + height / 10 / 2 + 5);
+ 
+  text("Lvl: ", 10, (height / 10*8) + height / 10 / 2 - 5);
+  text("Cost: ", 10, (height / 10*8) + height / 10 / 2 + 5);
 
- text("Get Exp: ", 10, (96*9) + 48);
+  text("Get Exp: "+ exp, 10, (height / 10*9) + height / 10 / 2);
  
  }
 // All Click related actions - Bjørn
 void mousePressed() {
+  if(mouseX > UpgradeWidth) {
+    coin = coin + 1;
+    exp++;
+  }
+  else {
+//  return 0;
+  
+  
+  }
   
 }
