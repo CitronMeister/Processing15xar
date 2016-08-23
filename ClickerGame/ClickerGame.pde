@@ -1,6 +1,6 @@
 // vars for everything :P - Bjørn
-// nice Lowercase "coin" while uppercase "Upgrade" - Mollermeister
-int coin = 0;
+// nice Lowercase "gold" while uppercase "Upgrade" - Mollermeister
+int gold = 0;
 int UpgradeWidth = 200;
 int exp = 0;
 int Multi = 0;
@@ -24,15 +24,15 @@ final int y = 1;
 
 void setup() {
 fullScreen();
-//size(1600, 960);
+// size(1600, 960);
 surface.setResizable(true);
 }
 
 void draw() {
   // Background to be changed later :P - Bjørn
   background(0);
-  // coins and exp - Bjørn
-  text("Coins: " + coin, UpgradeWidth/2 + width/2, height/15);
+  // golds and exp - Bjørn
+  text("gold: " + gold, UpgradeWidth/2 + width/2, height/15);
   text("Exp: " + exp, UpgradeWidth/2 + width / 2, height/15 + 10);
   // Visible Menu with text and buttons - Bjørn
   pushStyle();
@@ -123,69 +123,94 @@ void draw() {
   // Hover over - Bjørn
   if (mouseX <= 200 && mouseY <= (height / 10*1)) {
     rect(mouseX + 15, mouseY, width / 8, height / 4);
-  
   }
+  
+  else if (mouseX <= 200 && mouseY <= (height / 10*2)) {
+    rect(mouseX + 15, mouseY, width / 8, height / 4);
+  }
+  else if (mouseX <= 200 && mouseY <= (height / 10*3)) {
+    rect(mouseX + 15, mouseY, width / 8, height / 4);
+  }
+  else if (mouseX <= 200 && mouseY <= (height / 10*4)) {
+    rect(mouseX + 15, mouseY, width / 8, height / 4);
+  }
+  else if (mouseX <= 200 && mouseY <= (height / 10*5)) {
+    rect(mouseX + 15, mouseY, width / 8, height / 4);
+  }
+  else if (mouseX <= 200 && mouseY <= (height / 10*6)) {
+    rect(mouseX + 15, mouseY, width / 8, height / 4);
+  }
+  else if (mouseX <= 200 && mouseY <= (height / 10*7)) {
+    rect(mouseX + 15, mouseY, width / 8, height / 4);
+  }
+  else if (mouseX <= 200 && mouseY <= (height / 10*8)) {
+    rect(mouseX + 15, mouseY, width / 8, height / 4);
+  }
+  else if (mouseX <= 200 && mouseY <= (height / 10*9)) {
+    rect(mouseX + 15, mouseY, width / 8,- height / 4);
+  }
+  
   
 }
 // All Click related actions - Bjørn
 void mousePressed() {
   if(mouseX > UpgradeWidth) {
-    coin = coin + 1 + Multi;
+    gold = gold + 1 + Multi;
     exp = exp + 1 + expBonus;
   }
   
-  else if(mouseX <= 200 && mouseY <= (height / 10*1) && coin >= redUpgPrice) {
-    coin = coin - redUpgPrice;
+  else if(mouseX <= 200 && mouseY <= (height / 10*1) && gold >= redUpgPrice) {
+    gold = gold - redUpgPrice;
     expBonus++;
     Multi = Multi + 1;
   }
   
-  else if(mouseX <= 200 && mouseY <= (height / 10*2) && coin >= orangeUpgPrice && exp >= 10) {
-    coin = coin - orangeUpgPrice;
+  else if(mouseX <= 200 && mouseY <= (height / 10*2) && gold >= orangeUpgPrice && exp >= 10) {
+    gold = gold - orangeUpgPrice;
     exp = exp - 10;  
   }
   
-  else if(mouseX <= 200 && mouseY <= (height / 10*3) && coin >= yellowUpgPrice && exp >= 15) {
-    coin = coin - yellowUpgPrice;
+  else if(mouseX <= 200 && mouseY <= (height / 10*3) && gold >= yellowUpgPrice && exp >= 15) {
+    gold = gold - yellowUpgPrice;
     exp = exp - 15;
     Multi = Multi + 2;
   }
   
-  else if(mouseX <= 200 && mouseY <= (height / 10*4) && coin >= greenUpgPrice && exp >= 20) {
-    coin = coin - greenUpgPrice;
+  else if(mouseX <= 200 && mouseY <= (height / 10*4) && gold >= greenUpgPrice && exp >= 20) {
+    gold = gold - greenUpgPrice;
     exp = exp - 20;
     Multi = Multi + 3;
   }
   
-  else if(mouseX <= 200 && mouseY <= (height / 10*5) && coin >= turquoiseUpgPrice && exp >= 50) {
-    coin = coin - turquoiseUpgPrice;
+  else if(mouseX <= 200 && mouseY <= (height / 10*5) && gold >= turquoiseUpgPrice && exp >= 50) {
+    gold = gold - turquoiseUpgPrice;
     exp = exp - 50;
     Multi = Multi + 5;
   }
   
-  else if(mouseX <= 200 && mouseY <= (height / 10*6) && coin >= blueUpgPrice && exp >= 1000) {
-    coin = coin - blueUpgPrice;
+  else if(mouseX <= 200 && mouseY <= (height / 10*6) && gold >= blueUpgPrice && exp >= 1000) {
+    gold = gold - blueUpgPrice;
     exp = exp - 1000;
     Multi = Multi + 10;
   }
   
-  else if(mouseX <= 200 && mouseY <= (height / 10*7) && coin >= deeppurpleUpgPrice && exp >= 2000) {
-    coin = coin - deeppurpleUpgPrice;
+  else if(mouseX <= 200 && mouseY <= (height / 10*7) && gold >= deeppurpleUpgPrice && exp >= 2000) {
+    gold = gold - deeppurpleUpgPrice;
     exp = exp - 2000;
   }
   
-  else if(mouseX <= 200 && mouseY <= (height / 10*8) && coin >= purpleUpgPrice && exp >= 5000) {
-    coin = coin - purpleUpgPrice;
+  else if(mouseX <= 200 && mouseY <= (height / 10*8) && gold >= purpleUpgPrice && exp >= 5000) {
+    gold = gold - purpleUpgPrice;
     exp = exp - 5000;   
   }
   
-  else if(mouseX <= 200 && mouseY <= (height / 10*9) && coin >= pinkUpgPrice && exp >= 10000) {
-    coin = coin - pinkUpgPrice;
+  else if(mouseX <= 200 && mouseY <= (height / 10*9) && gold >= pinkUpgPrice && exp >= 10000) {
+    gold = gold - pinkUpgPrice;
     exp = exp - 10000;    
   }
   
-  else if(mouseX <= 200 && mouseY >= (height / 10*9) && coin >= 1000) {
-    coin = coin - 1000;
+  else if(mouseX <= 200 && mouseY >= (height / 10*9) && gold >= 1000) {
+    gold = gold - 1000;
     exp = exp + 50; 
   }  
 }
