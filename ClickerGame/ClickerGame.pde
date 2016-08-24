@@ -46,6 +46,7 @@ void draw() {
   pushStyle();
   rect(width / 2 - width/20, height / 5 + height / 2 + height / 5, width/10, height / 50);
   popStyle();
+  // Scaleable exp bar - Moller
   pushStyle();
   fill(xpBarR, xpBarG, xpBarB);
   rect(width / 2 - width/20, height / 5 + height / 2 + height / 5, width/10*exp/expToLevel, height / 50);
