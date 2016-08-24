@@ -39,9 +39,14 @@ void draw() {
   background(51);
   
   // gold, level and exp - Bjørn
+  pushStyle();
+  // Lampen tiltede - Moller
+  textAlign(CENTER);
+  // over det her ^
   text("gold: " + gold,width/2, height/15);
   text(exp + "/" + expToLevel,width / 2, height/3 + height/2 + 20);
   text("Level: " + playerLevel, width/2, height/ 3 + height / 2);
+  popStyle();
   // text("length of bar: " + width/10, width/2, height/ 3 + height / 2);
   pushStyle();
   rect(width / 2 - width/20, height / 5 + height / 2 + height / 5, width/10, height / 50);
