@@ -1,9 +1,8 @@
 // vars for everything :P - Bjørn
-// nice Lowercase "gold" while uppercase "Upgrade" - Mollermeister
 int gold = 0;
 int upgradeWidth = 200;
 int exp = 0;
-int Multi = 0;
+int multi = 0;
 int expBonus = 0;
 int expToLevel = 100;
 int playerLevel = 1;
@@ -36,18 +35,21 @@ surface.setResizable(true);
 void draw() {
   
   // Background to be changed later :P - Bjørn
-  background(0);
+  background(51);
   
   // gold, level and exp - Bjørn
   text("gold: " + gold,width/2, height/15);
-  text("Exp: " + exp + "/" + expToLevel,width / 2, height/15 + 15);
+  text(exp + "/" + expToLevel,width / 2, height/3 + height/2 + 20);
   text("Level: " + playerLevel, width/2, height/ 3 + height / 2);
+  // text("length of bar: " + width/10, width/2, height/ 3 + height / 2);
+  pushStyle();
+  rect(width / 2 - width/20, height / 5 + height / 2 + height / 5, width/10, height / 50);
+  popStyle();
   if(exp >= expToLevel) {
     playerLevel = playerLevel + 1;
     exp = 0;
     expToLevel = expToLevel * (playerLevel*2);
-  
-  }
+    }
   
   
   // Visible Menu with text and buttons - Bjørn
@@ -138,7 +140,7 @@ void draw() {
   popStyle();
   
   // Hover over - Bjørn
-  if (mouseX <= 200 && mouseY <= (height / 10*1)) {
+  if (mouseX <= upgradeWidth && mouseY <= (height / 10*1)) {
     pushStyle();
     noStroke();
     fill(255, 255, 255, transparency);
@@ -161,27 +163,82 @@ void draw() {
       popStyle();  
     }
   }
+  // orange - Bjørn
   else if (mouseX <= 200 && mouseY <= (height / 10*2)) {
     pushStyle();
     noStroke();    
     fill(255, 255, 255, transparency);
     rect(mouseX + 15, mouseY, width / 8, height / 4);
     popStyle();
+    pushStyle();
+    textSize(hoverText);
+    text("Name: ", mouseX + width/50, mouseY + 26);
+    
+    popStyle();
+    if (gold >= orangeUpgPrice) {
+      pushStyle();
+      fill(0, 255, 0);
+      text("Price: " + orangeUpgPrice, mouseX + width/50, mouseY + 26 + hoverText);
+      popStyle();    
+    }
+    else {
+      pushStyle();
+      fill(255, 0, 0);
+      text("Price: " + orangeUpgPrice, mouseX + width/50, mouseY + 26 + hoverText);
+      popStyle();  
+    }
   }
+  // yellow - Bjørn
   else if (mouseX <= 200 && mouseY <= (height / 10*3)) {
     pushStyle();
     noStroke();    
     fill(255, 255, 255, transparency);
     rect(mouseX + 15, mouseY, width / 8, height / 4);
     popStyle();
+    pushStyle();
+    textSize(hoverText);
+    text("Name: ", mouseX + width/50, mouseY + 26);
+    
+    popStyle();
+    if (gold >= yellowUpgPrice) {
+      pushStyle();
+      fill(0, 255, 0);
+      text("Price: " + yellowUpgPrice, mouseX + width/50, mouseY + 26 + hoverText);
+      popStyle();    
+    }
+    else {
+      pushStyle();
+      fill(255, 0, 0);
+      text("Price: " + yellowUpgPrice, mouseX + width/50, mouseY + 26 + hoverText);
+      popStyle();  
+    }
   }
+  
   else if (mouseX <= 200 && mouseY <= (height / 10*4)) {
     pushStyle();
     noStroke();    
     fill(255, 255, 255, transparency);
     rect(mouseX + 15, mouseY, width / 8, height / 4);
     popStyle();
+    pushStyle();
+    textSize(hoverText);
+    text("Name: ", mouseX + width/50, mouseY + 26);
+    
+    popStyle();
+    if (gold >= greenUpgPrice) {
+      pushStyle();
+      fill(0, 255, 0);
+      text("Price: " + greenUpgPrice, mouseX + width/50, mouseY + 26 + hoverText);
+      popStyle();    
+    }
+    else {
+      pushStyle();
+      fill(255, 0, 0);
+      text("Price: " + greenUpgPrice, mouseX + width/50, mouseY + 26 + hoverText);
+      popStyle();  
+    }
   }
+  
   else if (mouseX <= 200 && mouseY <= (height / 10*5)) {
     pushStyle();
     noStroke();    
@@ -189,6 +246,7 @@ void draw() {
     rect(mouseX + 15, mouseY, width / 8, height / 4);
     popStyle();
   }
+  
   else if (mouseX <= 200 && mouseY <= (height / 10*6)) {
     pushStyle();
     noStroke();    
@@ -196,6 +254,7 @@ void draw() {
     rect(mouseX + 15, mouseY, width / 8, height / 4);
     popStyle();
   }
+  
   else if (mouseX <= 200 && mouseY <= (height / 10*7)) {
     pushStyle();
     noStroke();
@@ -203,6 +262,7 @@ void draw() {
     rect(mouseX + 15, mouseY, width / 8, height / 4);
     popStyle();
   }
+  
   else if (mouseX <= 200 && mouseY <= (height / 10*8)) {
     pushStyle();
     noStroke();    
@@ -210,6 +270,7 @@ void draw() {
     rect(mouseX + 15, mouseY, width / 8,- height / 4);
     popStyle();
   }
+  
   else if (mouseX <= 200 && mouseY <= (height / 10*9)) {
     pushStyle();
     noStroke();    
@@ -223,7 +284,7 @@ void draw() {
 // All Click related actions - Bjørn
 void mousePressed() {
   if(mouseX > upgradeWidth) {
-    gold = gold + 1 + Multi;
+    gold = gold + 1 + multi;
     exp = exp + 1 + expBonus;
   }
   
@@ -231,7 +292,7 @@ void mousePressed() {
   else if(mouseX <= 200 && mouseY <= (height / 10*1) && gold >= redUpgPrice) {
     gold = gold - redUpgPrice;
     expBonus++;
-    Multi = Multi + 1;
+    multi = multi + 1;
   }
   
   else if(mouseX <= 200 && mouseY <= (height / 10*2) && gold >= orangeUpgPrice && exp >= 10) {
@@ -242,25 +303,25 @@ void mousePressed() {
   else if(mouseX <= 200 && mouseY <= (height / 10*3) && gold >= yellowUpgPrice && exp >= 15) {
     gold = gold - yellowUpgPrice;
     exp = exp - 15;
-    Multi = Multi + 2;
+    multi = multi + 2;
   }
   
   else if(mouseX <= 200 && mouseY <= (height / 10*4) && gold >= greenUpgPrice && exp >= 20) {
     gold = gold - greenUpgPrice;
     exp = exp - 20;
-    Multi = Multi + 3;
+    multi = multi + 3;
   }
   
   else if(mouseX <= 200 && mouseY <= (height / 10*5) && gold >= turquoiseUpgPrice && exp >= 50) {
     gold = gold - turquoiseUpgPrice;
     exp = exp - 50;
-    Multi = Multi + 5;
+    multi = multi + 5;
   }
   
   else if(mouseX <= 200 && mouseY <= (height / 10*6) && gold >= blueUpgPrice && exp >= 1000) {
     gold = gold - blueUpgPrice;
     exp = exp - 1000;
-    Multi = Multi + 10;
+    multi = multi + 10;
   }
   
   else if(mouseX <= 200 && mouseY <= (height / 10*7) && gold >= deeppurpleUpgPrice && exp >= 2000) {
