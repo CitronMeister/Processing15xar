@@ -49,6 +49,7 @@ void draw() {
   pushStyle();
   rect(width / 2 - width/20, height / 5 + height / 2 + height / 5, width/10, height / 50);
   popStyle();
+   
   // Scaleable exp bar - Moller
   pushStyle();
   fill(xpBarR, xpBarG, xpBarB);
@@ -111,38 +112,7 @@ void draw() {
   fill(128, 128, 128); // Grey
   rect(0, height / 10*9, upgradeWidth, height / 10);
   popStyle();
- 
- // all text for the menu
-  pushStyle(); 
-  fill(0, 0, 0);
-  //text("Lvl: ", 10, height / 10 / 2 - 5);
-  //text("Cost: " + redUpgPrice, 10, height / 10 / 2 + 5);
- 
-  text("Lvl: ", 10, (height / 10*1) + height / 10 / 2 - 5);
-  text("Cost: " + orangeUpgPrice, 10, (height / 10*1) + height / 10 / 2 + 5);
- 
-  text("Lvl: ", 10, (height / 10*2) + height / 10 / 2 - 5);
-  text("Cost: " + yellowUpgPrice, 10, (height / 10*2) + height / 10 / 2 + 5);
- 
-  text("Lvl: ", 10, (height / 10*3) + height / 10 / 2 - 5);
-  text("Cost: " + greenUpgPrice, 10, (height / 10*3) + height / 10 / 2 + 5);
- 
-  text("Lvl: ", 10, (height / 10*4) + height / 10 / 2 - 5);
-  text("Cost: " + turquoiseUpgPrice, 10, (height / 10*4) + height / 10 / 2 + 5);
- 
-  text("Lvl: ", 10, (height / 10*5) + height / 10 / 2 - 5);
-  text("Cost: " + blueUpgPrice, 10, (height / 10*5) + height / 10 / 2 + 5);
- 
-  text("Lvl: ", 10, (height / 10*6) + height / 10 / 2 - 5);
-  text("Cost: " + deeppurpleUpgPrice, 10, (height / 10*6) + height / 10 / 2 + 5);
- 
-  text("Lvl: ", 10, (height / 10*7) + height / 10 / 2 - 5);
-  text("Cost: " + purpleUpgPrice, 10, (height / 10*7) + height / 10 / 2 + 5);
- 
-  text("Lvl: ", 10, (height / 10*8) + height / 10 / 2 - 5);
-  text("Cost: " + pinkUpgPrice, 10, (height / 10*8) + height / 10 / 2 + 5);
-  popStyle();
-  
+  // Buy exp button.
   pushStyle();
   textSize(24);
   text("Buy Exp", upgradeWidth / 3.8, (height / 10*9) + height / 10 / 2 + 6);
@@ -185,7 +155,7 @@ void draw() {
     textSize(hoverText);
     text("Name: ", mouseX + width/50, mouseY + 26);
     popStyle();
-    text("Passive: Gain a random amount of exp", mouseX + width/50, mouseY + 26 + hoverText*2);
+    text("Passive: Gain 1-5 exp per click", mouseX + width/50, mouseY + 26 + hoverText*2);
     if (gold >= orangeUpgPrice) {
       pushStyle();
       fill(0, 255, 0);
@@ -205,29 +175,28 @@ void draw() {
     noStroke();    
     fill(255, 255, 255, transparency);
     rect(mouseX + 15, mouseY, width / 8, height / 4);
-    popStyle();
+    popStyle(); 
     pushStyle();
     textSize(hoverText);
     text("Name: ", mouseX + width/50, mouseY + 26);
-    
     popStyle();
     if (gold >= yellowUpgPrice) {
       pushStyle();
       fill(0, 255, 0);
       text("Price: " + yellowUpgPrice, mouseX + width/50, mouseY + 26 + hoverText);
-      popStyle();    
+      popStyle();
     }
     else {
       pushStyle();
       fill(255, 0, 0);
       text("Price: " + yellowUpgPrice, mouseX + width/50, mouseY + 26 + hoverText);
-      popStyle();  
+      popStyle();
     }
   }
   // Green - Bjørn
   else if(mouseX <= upgradeWidth && mouseY <= (height / 10*4)) {
     pushStyle();
-    noStroke();    
+    noStroke();
     fill(255, 255, 255, transparency);
     rect(mouseX + 15, mouseY, width / 8, height / 4);
     popStyle();
@@ -239,19 +208,19 @@ void draw() {
       pushStyle();
       fill(0, 255, 0);
       text("Price: " + greenUpgPrice, mouseX + width/50, mouseY + 26 + hoverText);
-      popStyle();    
+      popStyle();
     }
     else {
       pushStyle();
       fill(255, 0, 0);
       text("Price: " + greenUpgPrice, mouseX + width/50, mouseY + 26 + hoverText);
-      popStyle();  
+      popStyle();
     }
   }
   // turquoise - Bjørn
   else if(mouseX <= upgradeWidth && mouseY <= (height / 10*5)) {
     pushStyle();
-    noStroke();    
+    noStroke();
     fill(255, 255, 255, transparency);
     rect(mouseX + 15, mouseY, width / 8, height / 4);
     popStyle();
@@ -263,19 +232,19 @@ void draw() {
       pushStyle();
       fill(0, 255, 0);
       text("Price: " + turquoiseUpgPrice, mouseX + width/50, mouseY + 26 + hoverText);
-      popStyle();    
+      popStyle();
     }
     else {
       pushStyle();
       fill(255, 0, 0);
       text("Price: " + turquoiseUpgPrice, mouseX + width/50, mouseY + 26 + hoverText);
-      popStyle();  
+      popStyle();
     }
   }
-  // blue - Bjørn 
+  // blue - Bjørn
   else if(mouseX <= upgradeWidth && mouseY <= (height / 10*6)) {
     pushStyle();
-    noStroke();    
+    noStroke();
     fill(255, 255, 255, transparency);
     rect(mouseX + 15, mouseY, width / 8, height / 4);
     popStyle();
@@ -296,7 +265,7 @@ void draw() {
       popStyle();  
     }
   }
-  
+  // deeppurple - Bjørn
   else if(mouseX <= upgradeWidth && mouseY <= (height / 10*7)) {
     pushStyle();
     noStroke();
@@ -307,20 +276,20 @@ void draw() {
     textSize(hoverText);
     text("Name: ", mouseX + width/50, mouseY + 26);
     popStyle();
-    if (gold >= greenUpgPrice) {
+    if (gold >= deeppurpleUpgPrice) {
       pushStyle();
       fill(0, 255, 0);
-      text("Price: " + greenUpgPrice, mouseX + width/50, mouseY + 26 + hoverText);
+      text("Price: " + deeppurpleUpgPrice, mouseX + width/50, mouseY + 26 + hoverText);
       popStyle();    
     }
     else {
       pushStyle();
       fill(255, 0, 0);
-      text("Price: " + greenUpgPrice, mouseX + width/50, mouseY + 26 + hoverText);
+      text("Price: " + deeppurpleUpgPrice, mouseX + width/50, mouseY + 26 + hoverText);
       popStyle();  
     }
   }
-  
+  // purple purple
   else if(mouseX <= upgradeWidth && mouseY <= (height / 10*8)) {
     pushStyle();
     noStroke();    
@@ -329,22 +298,22 @@ void draw() {
     popStyle();
     pushStyle();
     textSize(hoverText);
-    text("Name: ", mouseX + width/50, mouseY + 26);
+    text("Name: ", mouseX + width/50, mouseY - height / 4 + 26);
     popStyle();
-    if (gold >= greenUpgPrice) {
+    if (gold >= purpleUpgPrice) {
       pushStyle();
       fill(0, 255, 0);
-      text("Price: " + greenUpgPrice, mouseX + width/50, mouseY + 26 + hoverText);
+      text("Price: " + purpleUpgPrice, mouseX + width/50,mouseY - height / 4 +  26 + hoverText);
       popStyle();    
     }
     else {
       pushStyle();
       fill(255, 0, 0);
-      text("Price: " + greenUpgPrice, mouseX + width/50, mouseY + 26 + hoverText);
+      text("Price: " + purpleUpgPrice, mouseX + width/50,mouseY - height / 4 +  26 + hoverText);
       popStyle();  
     }
   }
-  
+  // pink 
   else if(mouseX <= upgradeWidth && mouseY <= (height / 10*9)) {
     pushStyle();
     noStroke();    
@@ -353,18 +322,18 @@ void draw() {
     popStyle();
     pushStyle();
     textSize(hoverText);
-    text("Name: ", mouseX + width/50, mouseY + 26);
+    text("Name: ", mouseX + width/50,mouseY - height / 4 +  26);
     popStyle();
-    if (gold >= greenUpgPrice) {
+    if (gold >= pinkUpgPrice) {
       pushStyle();
       fill(0, 255, 0);
-      text("Price: " + greenUpgPrice, mouseX + width/50, mouseY + 26 + hoverText);
+      text("Price: " + pinkUpgPrice, mouseX + width/50,mouseY - height / 4 +  26 + hoverText);
       popStyle();    
     }
     else {
       pushStyle();
       fill(255, 0, 0);
-      text("Price: " + greenUpgPrice, mouseX + width/50, mouseY + 26 + hoverText);
+      text("Price: " + pinkUpgPrice, mouseX + width/50,mouseY - height / 4 +  26 + hoverText);
       popStyle();  
     }
   }
