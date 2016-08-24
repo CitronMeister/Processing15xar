@@ -63,27 +63,23 @@ void moveBallAndColor() {
     colorOption2 = 41;
     colorOption3 = 132;
   }
-  //Boost part - which not fucking works -.-'
+  //Boost part
     
   if (boostActive == true && boost > 50 ) {
     speedY = boostSpeed;
     speedX = boostSpeed;
     boost--;
   }
-  else{
+  else {
     speedY = standardSpeed;
     speedX = standardSpeed;
     boostActive = false;
-
   }
-
 }
-
-
 
 //Checking for which keys are pressed
 void keyPressed() {
-  //Boost parts that doesn't work
+  //Boost parts
   if (key == ' ' && boost > 50) {
     boostActive = true;
   }
@@ -102,11 +98,6 @@ void keyPressed() {
 }
 //Checking for released keys
 void keyReleased() {
-  /*if (key == ' ') {
-    boostActive = false;
-    speedX = standardSpeed;
-    speedY = standardSpeed;
-  }*/
    if (key == 'w' || key == 'W') {
     up = false;  
   }
@@ -136,7 +127,7 @@ void Restrictions() {
   }
 }
 
-//Just testing some stuff with this part
+//Adding fuel to the boost, with a simple incrimention
 void useBoost() {
   if (boostRecharging > 60) {
     boost ++;
