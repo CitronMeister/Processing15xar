@@ -40,9 +40,7 @@ void draw() {
   
   // gold, level and exp - Bjørn
   pushStyle();
-  // Lampen tiltede - Moller
   textAlign(CENTER);
-  // over det her ^
   text("gold: " + gold,width/2, height/15);
   text(exp + "/" + expToLevel,width / 2, height/3 + height/2 + 20);
   text("Level: " + playerLevel, width/2, height/ 3 + height / 2);
