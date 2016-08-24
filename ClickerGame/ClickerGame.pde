@@ -8,6 +8,8 @@ int expBonus = 0;
 int expToLevel = 100;
 int playerLevel = 1;
 int transparency = 200;
+int hoverText = 20;
+
 
 // Upgrade cost + price vars - Bjørn
 int redUpgPrice = 1;
@@ -102,8 +104,8 @@ void draw() {
  // all text for the menu
   pushStyle(); 
   fill(0, 0, 0);
-  text("Lvl: ", 10, height / 10 / 2 - 5);
-  text("Cost: " + redUpgPrice, 10, height / 10 / 2 + 5);
+  //text("Lvl: ", 10, height / 10 / 2 - 5);
+  //text("Cost: " + redUpgPrice, 10, height / 10 / 2 + 5);
  
   text("Lvl: ", 10, (height / 10*1) + height / 10 / 2 - 5);
   text("Cost: " + orangeUpgPrice, 10, (height / 10*1) + height / 10 / 2 + 5);
@@ -129,6 +131,7 @@ void draw() {
   text("Lvl: ", 10, (height / 10*8) + height / 10 / 2 - 5);
   text("Cost: " + pinkUpgPrice, 10, (height / 10*8) + height / 10 / 2 + 5);
   popStyle();
+  
   pushStyle();
   textSize(24);
   text("Buy Exp", upgradeWidth / 3.8, (height / 10*9) + height / 10 / 2 + 6);
@@ -139,8 +142,24 @@ void draw() {
     pushStyle();
     noStroke();
     fill(255, 255, 255, transparency);
-    rect(mouseX + 15, mouseY, width / 8, height / 4);
+    rect(mouseX + 15, mouseY, width / 8, height / 4);      
     popStyle();
+    pushStyle();
+    textSize(hoverText);
+    text("Name: ", mouseX + width/50, mouseY + 26);
+    popStyle();
+    if (gold >= redUpgPrice) {
+      pushStyle();
+      fill(0, 255, 0);
+      text("Price: " + redUpgPrice, mouseX + width/50, mouseY + 26 + hoverText);
+      popStyle();    
+    }
+    else {
+      pushStyle();
+      fill(255, 0, 0);
+      text("Price: " + redUpgPrice, mouseX + width/50, mouseY + 26 + hoverText);
+      popStyle();  
+    }
   }
   else if (mouseX <= 200 && mouseY <= (height / 10*2)) {
     pushStyle();
