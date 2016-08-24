@@ -8,6 +8,7 @@ int expToLevel = 100;
 int playerLevel = 1;
 int transparency = 200;
 int hoverText = 20;
+int xpBarR = 60, xpBarG = 80, xpBarB = 210;
 
 
 // Upgrade cost + price vars - Bjørn
@@ -44,6 +45,10 @@ void draw() {
   // text("length of bar: " + width/10, width/2, height/ 3 + height / 2);
   pushStyle();
   rect(width / 2 - width/20, height / 5 + height / 2 + height / 5, width/10, height / 50);
+  popStyle();
+  pushStyle();
+  fill(xpBarR, xpBarG, xpBarB);
+  rect(width / 2 - width/20, height / 5 + height / 2 + height / 5, width/10*exp/expToLevel, height / 50);
   popStyle();
   if(exp >= expToLevel) {
     playerLevel = playerLevel + 1;
