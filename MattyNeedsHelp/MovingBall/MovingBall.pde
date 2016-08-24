@@ -1,11 +1,18 @@
+//Variables for the ball size, -color and speed
 float ballXCord, ballYCord, ballRadius, speedX, speedY, colorOption1 = 255, colorOption2 = 255, colorOption3 = 255, boostSpeed = 11, standardSpeed = 5;
+//Booleans for moving
 boolean up, down, left, right;
+
+//Boolean/variables for the boost mehanic
 float boost, boostRecharging;
 boolean boostActive;
 
+//Variables for the boostbar
+float BoostRectX = 400, BoostRectY = 500, BoostRectWidth, BoostRectHeight= 20, BoostRectColor1 = 0, BoostRectColor2 = 255, BoostRectColor3 = 0;
+
 
 void setup() {
-  size(900, 600);
+  size(900, 600); ////fullScreen();
   
   //Varialbe declarations
   ballXCord = width/2;
@@ -13,7 +20,7 @@ void setup() {
   ballRadius = 60;
   speedX = 5;
   speedY = 5;
-  boost = 100;
+  boost = 180;
 }
 
 
@@ -24,6 +31,7 @@ void draw() {
   moveBallAndColor();
   Restrictions();
   useBoost();
+  drawBoostBar();
   
  
   
@@ -36,7 +44,12 @@ void drawBall() {
   ellipse(ballXCord, ballYCord, ballRadius, ballRadius);
   fill(255);
 }
-
+void drawBoostBar() {
+  BoostRectWidth = boost;
+  fill (BoostRectColor1, BoostRectColor2, BoostRectColor3);
+  rect(BoostRectX, BoostRectY, BoostRectWidth, BoostRectHeight);  
+  fill(255);
+}
 //Makes the ball move and changes colors
 void moveBallAndColor() {
   if (up) {
@@ -65,10 +78,10 @@ void moveBallAndColor() {
   }
   //Boost part
     
-  if (boostActive == true && boost > 50 ) {
+  if (boostActive == true && boost > 0 ) {
     speedY = boostSpeed;
     speedX = boostSpeed;
-    boost--;
+    boost -= 0.5;
   }
   else {
     speedY = standardSpeed;
@@ -80,7 +93,7 @@ void moveBallAndColor() {
 //Checking for which keys are pressed
 void keyPressed() {
   //Boost parts
-  if (key == ' ' && boost > 50) {
+  if (key == ' ' && boost > 0) {
     boostActive = true;
   }
    if (key == 'w' || key == 'W') {
@@ -110,6 +123,10 @@ void keyReleased() {
    if (key == 'd' || key == 'D') {
     right = false;
   }
+  if (key == ' ') {
+    boostActive = false;  
+  }
+
 }
 //Ensures that the ball can't leave the given perimiter
 void Restrictions() {
@@ -125,11 +142,16 @@ void Restrictions() {
   if (ballXCord + ballRadius/2 > width) {
     ballXCord -= speedX;  
   }
+  //Ensures the boost doesn't get over 200
+  if (boost > 200) {
+    boost = 200;  
+  }
+
 }
 
 //Adding fuel to the boost, with a simple incrimention
 void useBoost() {
-  if (boostRecharging > 60) {
+  if (boostRecharging > 20) {
     boost ++;
     boostRecharging = 0;
   }
