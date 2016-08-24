@@ -64,7 +64,8 @@ void moveBallAndColor() {
     colorOption3 = 132;
   }
   //Boost part - which not fucking works -.-'
-  if (boostActive) {
+    
+  if (boostActive == true && boost >= 51 ) {
     speedY = boostSpeed;
     speedX = boostSpeed;
     boost--;
