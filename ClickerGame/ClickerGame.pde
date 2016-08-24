@@ -7,6 +7,7 @@ int Multi = 0;
 int expBonus = 0;
 int expToLevel = 100;
 int playerLevel = 1;
+int transparency = 200;
 
 // Upgrade cost + price vars - Bjørn
 int redUpgPrice = 1;
@@ -135,32 +136,67 @@ void draw() {
   
   // Hover over - Bjørn
   if (mouseX <= 200 && mouseY <= (height / 10*1)) {
+    pushStyle();
+    noStroke();
+    fill(255, 255, 255, transparency);
     rect(mouseX + 15, mouseY, width / 8, height / 4);
+    popStyle();
   }
-  
   else if (mouseX <= 200 && mouseY <= (height / 10*2)) {
+    pushStyle();
+    noStroke();    
+    fill(255, 255, 255, transparency);
     rect(mouseX + 15, mouseY, width / 8, height / 4);
+    popStyle();
   }
   else if (mouseX <= 200 && mouseY <= (height / 10*3)) {
+    pushStyle();
+    noStroke();    
+    fill(255, 255, 255, transparency);
     rect(mouseX + 15, mouseY, width / 8, height / 4);
+    popStyle();
   }
   else if (mouseX <= 200 && mouseY <= (height / 10*4)) {
+    pushStyle();
+    noStroke();    
+    fill(255, 255, 255, transparency);
     rect(mouseX + 15, mouseY, width / 8, height / 4);
+    popStyle();
   }
   else if (mouseX <= 200 && mouseY <= (height / 10*5)) {
+    pushStyle();
+    noStroke();    
+    fill(255, 255, 255, transparency);
     rect(mouseX + 15, mouseY, width / 8, height / 4);
+    popStyle();
   }
   else if (mouseX <= 200 && mouseY <= (height / 10*6)) {
+    pushStyle();
+    noStroke();    
+    fill(255, 255, 255, transparency);
     rect(mouseX + 15, mouseY, width / 8, height / 4);
+    popStyle();
   }
   else if (mouseX <= 200 && mouseY <= (height / 10*7)) {
+    pushStyle();
+    noStroke();
+    fill(255, 255, 255, transparency);
     rect(mouseX + 15, mouseY, width / 8, height / 4);
+    popStyle();
   }
   else if (mouseX <= 200 && mouseY <= (height / 10*8)) {
-    rect(mouseX + 15, mouseY, width / 8, height / 4);
+    pushStyle();
+    noStroke();    
+    fill(255, 255, 255, transparency);
+    rect(mouseX + 15, mouseY, width / 8,- height / 4);
+    popStyle();
   }
   else if (mouseX <= 200 && mouseY <= (height / 10*9)) {
+    pushStyle();
+    noStroke();    
+    fill(255, 255, 255, transparency);
     rect(mouseX + 15, mouseY, width / 8,- height / 4);
+    popStyle();
   }
   
   
