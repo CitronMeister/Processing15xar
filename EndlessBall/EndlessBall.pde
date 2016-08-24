@@ -8,12 +8,10 @@ int TextSize = height/100*33;
 int BackgR = 240;
 int BackgG = 240;
 int BackgB = 240;
-float BallR = random(40,215);
-float BallG = random(40,215);
-float BallB = random(40,215);
-int BoxR = 0;
-int BoxG = 0;
-int BoxB = 0;
+float BallR = random(40,240);
+float BallG = random(40,240);
+float BallB = random(40,240);
+float BoxR = random(40,240), BoxG = random(40,240), BoxB = random(40,240);
   
   
 void setup() {
@@ -23,17 +21,21 @@ void setup() {
   
 void draw() {
   
-  // background to make the "old" ball disappear - Moller
-  background(BackgR, BackgG, BackgB);
+// background to make the "old" ball disappear - Moller
+background(BackgR, BackgG, BackgB);
   
-  if(mouseX >= (width/2)-TextSize && mouseX <= (width/2)-TextSize + (TextSize*2) && mouseY >= (height/2)-TextSize && mouseY <= (height/2)-TextSize + (TextSize*2)) {
+// checks if the mouse position is right - Moller
+if(mouseX >= (width/2)-TextSize && mouseX <= (width/2)-TextSize + (TextSize*2) && mouseY >= (height/2)-TextSize && mouseY <= (height/2)-TextSize + (TextSize*2)) {
+    // Making Box color random when held in the box
+    BoxR = random(40,240); 
+    BoxG = random(40,240); 
+    BoxB = random(40,240);
     
-    //ball color - Moller
+    // Ball color and the ball itself - Moller
     fill(BallR, BallG, BallB); 
-    //The ball itself - Moller
     ellipse(BallX, BallY, BallDiameter, BallDiameter);
     
-  // if statement which test if ball is on screen - Moller
+    // if statement which test if ball is on screen - Moller
     if(BallX < width + (BallDiameter/2)) {
       BallX = BallX + BallSpeed;
     }else {
@@ -48,13 +50,13 @@ void draw() {
       BallG = random(40,215);
       BallB = random(40,215);
     }
-  }else {
+}else {
     // Color,size and the text itself - Moller
     fill(0,0,0);
     textSize(TextSize);
     text("Hold Your mouse in the square", 50, 50);
     // Color for the box and the box itself - Moller
-    fill(201,49,184);
+    fill(BoxR, BoxG, BoxB);
     rect((width/2)-TextSize, (height/2)-TextSize, TextSize*2, TextSize*2);
   }
 }
