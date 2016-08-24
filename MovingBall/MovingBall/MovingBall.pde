@@ -1,10 +1,15 @@
+/*
+To do: Make boostbar & "boost" number unable for ball to hit. Add small balls randomly spawned to "eat"
+*/
+
+
 //Variables for the ball size, -color and speed
 float ballXCord, ballYCord, ballRadius, speedX, speedY, colorOption1 = 255, colorOption2 = 255, colorOption3 = 255, boostSpeed = 11, standardSpeed = 5;
 //Booleans for moving
 boolean up, down, left, right;
 
 //Boolean/variables for the boost mehanic
-float boost, boostRecharging;
+int boost, boostRecharging;
 boolean boostActive;
 
 //Variables for the boostbar
@@ -20,7 +25,7 @@ void setup() {
   ballRadius = 60;
   speedX = 5;
   speedY = 5;
-  boost = 180;
+  boost = 120;
 }
 
 
@@ -142,17 +147,14 @@ void Restrictions() {
   if (ballXCord + ballRadius/2 > width) {
     ballXCord -= speedX;  
   }
-  //Ensures the boost doesn't get over 200
-  if (boost > 200) {
-    boost = 200;  
-  }
-
 }
 
 //Adding fuel to the boost, with a simple incrimention
 void useBoost() {
   if (boostRecharging > 20) {
-    boost ++;
+    if (boost < 200) {
+      boost ++;
+    }
     boostRecharging = 0;
   }
   text("Boost: " + boost, 100, 100);
