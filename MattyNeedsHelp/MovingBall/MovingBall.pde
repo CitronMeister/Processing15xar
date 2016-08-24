@@ -65,10 +65,16 @@ void moveBallAndColor() {
   }
   //Boost part - which not fucking works -.-'
     
-  if (boostActive == true && boost >= 51 ) {
+  if (boostActive == true && boost > 50 ) {
     speedY = boostSpeed;
     speedX = boostSpeed;
     boost--;
+  }
+  else{
+    speedY = standardSpeed;
+    speedX = standardSpeed;
+    boostActive = false;
+
   }
 
 }
@@ -96,11 +102,11 @@ void keyPressed() {
 }
 //Checking for released keys
 void keyReleased() {
-  if (key == ' ') {
+  /*if (key == ' ') {
     boostActive = false;
     speedX = standardSpeed;
     speedY = standardSpeed;
-  }
+  }*/
    if (key == 'w' || key == 'W') {
     up = false;  
   }
