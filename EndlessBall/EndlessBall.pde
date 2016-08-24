@@ -5,17 +5,19 @@ float BallX = 0 + BallDiameter;
 float BallY = random(BallDiameter / 2, height - BallDiameter);
 int TextSize = height/100*33;
 
+
 // Colors - Moller
 // Background Colors - Bjørn
 int BackgR = 240, BackgG = 240, BackgB = 240;
 // Ball Colors - Bjørn
 float BallR = random(40, 240), BallG = random(40, 240), BallB = random(40, 240);
-
+// Box Colors - Moller
 float BoxR = random(40, 240), BoxG = random(40, 240), BoxB = random(40, 240);
   
   
 void setup() {
   fullScreen();
+  // no peaseantry here 60 fps all the way
   frameRate(60);
 } 
 void draw() {

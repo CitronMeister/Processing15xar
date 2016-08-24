@@ -1,5 +1,5 @@
 // vars for everything :P - Bjørn
-// nice Lowercase "gold" while uppercase "Upgrade" - Mollermeister
+// nice Lowercase "gold" while uppercase "Multi" - Mollermeister
 int gold = 0;
 int upgradeWidth = 200;
 int exp = 0;
