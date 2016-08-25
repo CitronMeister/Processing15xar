@@ -16,7 +16,7 @@ int maxBoost = 200;
 float BoostRectX = 400, BoostRectY = 565, BoostRectWidth, BoostRectHeight= 20, BoostRectColor1 = 0, BoostRectColor2 = 255, BoostRectColor3 = 0;
 
 //Time played
-int timePlayedSeconds = 50;
+int timePlayedSeconds = 40;
 int timePlayedMinutes = 0;
 int timePlayedInc = 0;
 String timeUnit = " seconds";
