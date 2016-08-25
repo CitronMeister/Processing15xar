@@ -4,7 +4,7 @@ float BallDiameter = 50;
 float BallX = 0 + BallDiameter;
 float BallY = random(BallDiameter / 2, height - BallDiameter);
 int TextSize = height/100*33;
-
+int BallCounter = 0;
 
 // Colors - Moller
 // Background Colors - Bjørn
@@ -27,15 +27,20 @@ background(BackgR, BackgG, BackgB);
   
 // checks if the mouse position is right - Moller
 if(mouseX >= (width/2)-TextSize && mouseX <= (width/2)-TextSize + (TextSize*2) && mouseY >= (height/2)-TextSize && mouseY <= (height/2)-TextSize + (TextSize*2)) {
+    pushStyle();  
     // Making Box color random when held in the box
     BoxR = random(40, 240); 
     BoxG = random(40, 240); 
     BoxB = random(40, 240);
-    
     // Ball color and the ball itself - Moller
     fill(BallR, BallG, BallB); 
     ellipse(BallX, BallY, BallDiameter, BallDiameter);
-    
+    popStyle();
+    pushStyle();
+    fill(0, 0, 0);
+    // BallCounter
+    text("Number of balls you've seen = " + BallCounter,width/8*4,height/20);
+    popStyle();
     // if statement which test if ball is on screen - Moller
     if(BallX < width + (BallDiameter/2)) {
       BallX = BallX + BallSpeed;
@@ -51,15 +56,20 @@ if(mouseX >= (width/2)-TextSize && mouseX <= (width/2)-TextSize + (TextSize*2) &
       BallR = random(40, 215);
       BallG = random(40, 215);
       BallB = random(40, 215);
+      BallCounter++;
     }
 }
 else {
-    // Color,size and the text itself - Moller
+    // Color, textsize and the text itself - Moller
+    pushStyle();
     fill(0, 0, 0);
     textSize(TextSize);
     text("Hold Your mouse in the square", 50, 50);
     // Color for the box and the box itself - Moller
+    popStyle();
+    pushStyle();
     fill(BoxR, BoxG, BoxB);
     rect((width/2)-TextSize, (height/2)-TextSize, TextSize*2, TextSize*2);
-  }
+    popStyle();
+}
 }
