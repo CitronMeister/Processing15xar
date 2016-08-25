@@ -1,7 +1,6 @@
 /*
-To do: Make boostbar & "boost" number unable for ball to hit. Add small balls randomly spawned to "eat". Make border (above the boostbar)
+To do:  Add small balls randomly spawned to "eat". Make border (above the boostbar)
 */
-
 
 //Variables for the ball size, -color and speed
 float ballXCord, ballYCord, ballRadius, speedX, speedY, colorOption1 = 255, colorOption2 = 255, colorOption3 = 255, boostSpeed = 11, standardSpeed = 5;
@@ -11,18 +10,19 @@ boolean up, down, left, right;
 //Boolean/variables for the boost mehanic
 int boost, boostRecharging;
 boolean boostActive;
+int maxBoost = 200;
 
 //Variables for the boostbar
-float BoostRectX = 400, BoostRectY = 560, BoostRectWidth, BoostRectHeight= 20, BoostRectColor1 = 0, BoostRectColor2 = 255, BoostRectColor3 = 0;
+float BoostRectX = 400, BoostRectY = 565, BoostRectWidth, BoostRectHeight= 20, BoostRectColor1 = 0, BoostRectColor2 = 255, BoostRectColor3 = 0;
 
 
 void setup() {
-  size(900, 600); ////fullScreen();
-  
+  size(900, 600); //fullScreen();
+  //surface.setResizable(true);
   //Varialbe declarations
   ballXCord = width/2;
   ballYCord = height/2;
-  ballRadius = 60;
+  ballRadius = 50;
   speedX = 5;
   speedY = 5;
   boost = 120;
@@ -38,7 +38,6 @@ void draw() {
   useBoost();
   drawBoostBar();
   
- 
   
 }
 
@@ -51,8 +50,10 @@ void drawBall() {
 }
 void drawBoostBar() {
   BoostRectWidth = boost;
+  fill (255);
+  rect(width/2 - maxBoost/2, BoostRectY, maxBoost, BoostRectHeight);
   fill (BoostRectColor1, BoostRectColor2, BoostRectColor3);
-  rect(BoostRectX, BoostRectY, BoostRectWidth, BoostRectHeight);  
+  rect(width/2- maxBoost/2, BoostRectY, BoostRectWidth, BoostRectHeight);  
   fill(255);
 }
 //Makes the ball move and changes colors
@@ -138,7 +139,7 @@ void Restrictions() {
   if (ballYCord - ballRadius/2 < 0) {
     ballYCord += speedY;  
   }
-  if (ballYCord + ballRadius/2 > height-50) {
+  if (ballYCord + ballRadius/2 > height-65) {
     ballYCord -= speedY;  
   }
   if (ballXCord - ballRadius/2 < 0) {
@@ -152,10 +153,11 @@ void Restrictions() {
 //Adding fuel to the boost, with a simple incrimention
 void useBoost() {
   if (boostRecharging > 20) {
-    if (boost < 200) {
+    if (boost < maxBoost) {
       boost ++;
     }
     boostRecharging = 0;
   }
-  text("Boost: " + boost, 100, 100);
+  textAlign(CENTER);
+  text("Boost: " + boost, width/2, height-45);
 }
