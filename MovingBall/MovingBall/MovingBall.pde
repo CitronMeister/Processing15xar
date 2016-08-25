@@ -1,5 +1,5 @@
 /*
-To do:  Add small balls randomly spawned to "eat". Make border (above the boostbar)
+To do:  Add small balls randomly spawned to "eat". Add score and time to left and right side of buttonbox
 */
 
 //Variables for the ball size, -color and speed
@@ -15,6 +15,12 @@ int maxBoost = 200;
 //Variables for the boostbar
 float BoostRectX = 400, BoostRectY = 565, BoostRectWidth, BoostRectHeight= 20, BoostRectColor1 = 0, BoostRectColor2 = 255, BoostRectColor3 = 0;
 
+//Time played
+int timePlayedSeconds = 50;
+int timePlayedMinutes = 0;
+int timePlayedInc = 0;
+String timeUnit = " seconds";
+boolean minutGone = false;
 
 void setup() {
   size(900, 600); //fullScreen();
@@ -37,6 +43,8 @@ void draw() {
   Restrictions();
   useBoost();
   drawBoostBar();
+  ButtonBox();
+  timePlayed();
   
   
 }
@@ -143,7 +151,7 @@ void Restrictions() {
     ballYCord -= speedY;  
   }
   if (ballXCord - ballRadius/2 < 0) {
-    ballXCord += speedX;  
+    ballXCord += speedX;
   }
   if (ballXCord + ballRadius/2 > width) {
     ballXCord -= speedX;  
@@ -159,5 +167,33 @@ void useBoost() {
     boostRecharging = 0;
   }
   textAlign(CENTER);
+  textSize(14);  
   text("Boost: " + boost, width/2, height-45);
+   //Also added the "Score" and "Time" here, to avoid the opacity on the text
+  text("Score: ", 100, height-45);
+  //Displayed how many minutes and seconds that the program has run in.
+  if (minutGone == false) {
+  text("Time played: "+ timePlayedSeconds + timeUnit, 750, height-45);
+  } else {
+    text("Time played: "+ timePlayedMinutes + timeUnit + " and " + timePlayedSeconds + " seconds", 750, height-45);
+  }
+}
+//Box in botton
+void ButtonBox() {
+  fill(255, 75);
+  rect(0, height-64, width, height-55, 15);
+}
+
+void timePlayed() {
+  timePlayedInc++;
+  if (timePlayedInc >= 60) {
+    timePlayedSeconds++;
+    timePlayedInc = 0;
+  }
+  if (timePlayedSeconds > 59) {
+    timeUnit = " minutes";
+    timePlayedMinutes++;
+    minutGone = true;
+    timePlayedSeconds = 0;
+  }
 }
