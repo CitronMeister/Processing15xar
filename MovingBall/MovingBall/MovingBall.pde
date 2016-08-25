@@ -1,5 +1,5 @@
 /*
-To do: Make boostbar & "boost" number unable for ball to hit. Add small balls randomly spawned to "eat"
+To do: Make boostbar & "boost" number unable for ball to hit. Add small balls randomly spawned to "eat". Make border (above the boostbar)
 */
 
 
@@ -13,7 +13,7 @@ int boost, boostRecharging;
 boolean boostActive;
 
 //Variables for the boostbar
-float BoostRectX = 400, BoostRectY = 500, BoostRectWidth, BoostRectHeight= 20, BoostRectColor1 = 0, BoostRectColor2 = 255, BoostRectColor3 = 0;
+float BoostRectX = 400, BoostRectY = 560, BoostRectWidth, BoostRectHeight= 20, BoostRectColor1 = 0, BoostRectColor2 = 255, BoostRectColor3 = 0;
 
 
 void setup() {
@@ -60,8 +60,8 @@ void moveBallAndColor() {
   if (up) {
     ballYCord -= speedY;
     colorOption1 = 32;
-    colorOption2 = 255;
-    colorOption3 = 64;
+    colorOption2 = 87;
+    colorOption3 = 41;
   }
   if (down) {
     ballYCord += speedY;  
@@ -138,7 +138,7 @@ void Restrictions() {
   if (ballYCord - ballRadius/2 < 0) {
     ballYCord += speedY;  
   }
-  if (ballYCord + ballRadius/2 > height) {
+  if (ballYCord + ballRadius/2 > height-50) {
     ballYCord -= speedY;  
   }
   if (ballXCord - ballRadius/2 < 0) {
