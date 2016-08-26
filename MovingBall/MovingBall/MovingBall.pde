@@ -41,8 +41,8 @@ void setup() {
   speedX = 5;
   speedY = 5;
   boost = 120;
-  foodX = random(0+foodDia, 900-foodDia);
-  foodY = random(0+foodDia, 600-foodDia);
+  foodX = random(0+foodDia, width-foodDia);
+  foodY = random(0+foodDia, height-foodDia-65);
 }
 
 
@@ -210,7 +210,15 @@ void timePlayed() {
 }
 
 void Food() {
+  distance = sqrt(pow(ballXCord-foodX,2)+ pow(ballYCord-foodY,2));
   fill(foodColor1, foodColor2, foodColor3);
   ellipse(foodX, foodY, foodDia, foodDia);
   fill(0);
+  
+  if (distance < ballDia/2 + foodDia/2) {
+    foodX = random(0+foodDia, width-foodDia);
+    foodY = random(0+foodDia, height-foodDia-65);
+    ballDia++;
+    boost += 2;
+  }
 }
