@@ -3,7 +3,8 @@ To do:  Add small balls randomly spawned to "eat". Add score and time to left an
 */
 
 //Variables for the ball size, -color and speed
-float ballXCord, ballYCord, ballRadius, speedX, speedY, colorOption1 = 255, colorOption2 = 255, colorOption3 = 255, boostSpeed = 11, standardSpeed = 5;
+float ballXCord, ballYCord, ballDia, speedX, speedY, colorOption1 = 255, colorOption2 = 255, colorOption3 = 255, boostSpeed = 11, standardSpeed = 5;
+
 //Booleans for moving
 boolean up, down, left, right;
 
@@ -22,13 +23,15 @@ int timePlayedInc = 0;
 String timeUnit = " seconds";
 boolean minutGone = false;
 
+int score = 0;
+
 void setup() {
   size(900, 600); //fullScreen();
   //surface.setResizable(true);
   //Varialbe declarations
   ballXCord = width/2;
   ballYCord = height/2;
-  ballRadius = 50;
+  ballDia = 50;
   speedX = 5;
   speedY = 5;
   boost = 120;
@@ -53,7 +56,7 @@ void draw() {
 void drawBall() {
   background(0);
   fill (colorOption1, colorOption2, colorOption3);
-  ellipse(ballXCord, ballYCord, ballRadius, ballRadius);
+  ellipse(ballXCord, ballYCord, ballDia, ballDia);
   fill(255);
 }
 void drawBoostBar() {
@@ -144,16 +147,16 @@ void keyReleased() {
 }
 //Ensures that the ball can't leave the given perimiter
 void Restrictions() {
-  if (ballYCord - ballRadius/2 < 0) {
+  if (ballYCord - ballDia/2 < 0) {
     ballYCord += speedY;  
   }
-  if (ballYCord + ballRadius/2 > height-65) {
+  if (ballYCord + ballDia/2 > height-65) {
     ballYCord -= speedY;  
   }
-  if (ballXCord - ballRadius/2 < 0) {
+  if (ballXCord - ballDia/2 < 0) {
     ballXCord += speedX;
   }
-  if (ballXCord + ballRadius/2 > width) {
+  if (ballXCord + ballDia/2 > width) {
     ballXCord -= speedX;  
   }
 }
@@ -170,7 +173,7 @@ void useBoost() {
   textSize(14);  
   text("Boost: " + boost, width/2, height-45);
    //Also added the "Score" and "Time" here, to avoid the opacity on the text
-  text("Score: ", 100, height-45);
+  text("Score: " + score, 100, height-45);
   //Displayed how many minutes and seconds that the program has run in.
   if (minutGone == false) {
   text("Time played: "+ timePlayedSeconds + timeUnit, 750, height-45);
@@ -191,7 +194,7 @@ void timePlayed() {
     timePlayedInc = 0;
   }
   if (timePlayedSeconds > 59) {
-    timeUnit = " minutes";
+    timeUnit = " minute(s)";
     timePlayedMinutes++;
     minutGone = true;
     timePlayedSeconds = 0;
