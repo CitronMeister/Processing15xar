@@ -3,7 +3,7 @@ To do:  Add small balls randomly spawned to "eat". Add score and time to left an
 */
 
 //Variables for the ball size, -color and speed
-float ballXCord, ballYCord, ballDia, speedX, speedY, colorOption1 = 255, colorOption2 = 255, colorOption3 = 255, boostSpeed = 11, standardSpeed = 5;
+int ballXCord, ballYCord, ballDia, speedX, speedY, colorOption1 = 255, colorOption2 = 255, colorOption3 = 255, boostSpeed = 11, standardSpeed = 5;
 
 //Booleans for moving
 boolean up, down, left, right;
@@ -17,13 +17,19 @@ int maxBoost = 200;
 float BoostRectX = 400, BoostRectY = 565, BoostRectWidth, BoostRectHeight= 20, BoostRectColor1 = 0, BoostRectColor2 = 255, BoostRectColor3 = 0;
 
 //Time played
-int timePlayedSeconds = 40;
+int timePlayedSeconds = 0;
 int timePlayedMinutes = 0;
 int timePlayedInc = 0;
 String timeUnit = " seconds";
 boolean minutGone = false;
 
-int score = 0;
+//Food
+float foodX, foodY, foodDia = 15, foodColor1 = 242, foodColor2 = 255, foodColor3 = 93;
+
+
+//Distance
+float distance = sqrt(pow(ballXCord-foodX,2)+ pow(ballYCord-foodY,2));
+
 
 void setup() {
   size(900, 600); //fullScreen();
@@ -31,16 +37,17 @@ void setup() {
   //Varialbe declarations
   ballXCord = width/2;
   ballYCord = height/2;
-  ballDia = 50;
+  ballDia = 40;
   speedX = 5;
   speedY = 5;
   boost = 120;
+  foodX = random(0+foodDia, 900-foodDia);
+  foodY = random(0+foodDia, 600-foodDia);
 }
 
 
 void draw() { 
   boostRecharging ++;
-  
   drawBall();
   moveBallAndColor();
   Restrictions();
@@ -48,6 +55,7 @@ void draw() {
   drawBoostBar();
   ButtonBox();
   timePlayed();
+  Food();
   
   
 }
@@ -56,7 +64,7 @@ void draw() {
 void drawBall() {
   background(0);
   fill (colorOption1, colorOption2, colorOption3);
-  ellipse(ballXCord, ballYCord, ballDia, ballDia);
+  ellipse(ballXCord, ballYCord, ballDia, ballDia); //Own ball
   fill(255);
 }
 void drawBoostBar() {
@@ -173,7 +181,7 @@ void useBoost() {
   textSize(14);  
   text("Boost: " + boost, width/2, height-45);
    //Also added the "Score" and "Time" here, to avoid the opacity on the text
-  text("Score: " + score, 100, height-45);
+  text("Size: " + ballDia, 100, height-45);
   //Displayed how many minutes and seconds that the program has run in.
   if (minutGone == false) {
   text("Time played: "+ timePlayedSeconds + timeUnit, 750, height-45);
@@ -199,4 +207,10 @@ void timePlayed() {
     minutGone = true;
     timePlayedSeconds = 0;
   }
+}
+
+void Food() {
+  fill(foodColor1, foodColor2, foodColor3);
+  ellipse(foodX, foodY, foodDia, foodDia);
+  fill(0);
 }
