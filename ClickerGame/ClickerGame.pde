@@ -36,12 +36,15 @@ surface.setResizable(true);
 void draw() {
   
   // Background to be changed later :P - Bjørn
+  pushStyle();
+  textSize(12);
   background(51);
   goldLevelExp();
   expBar();
   visMenu();
   hoverMenu();
-  hoverText();   
+  hoverText();
+  popStyle();
 }
 // All Click related actions - Bjørn
 void mousePressed() {
@@ -108,25 +111,29 @@ void mousePressed() {
   }  
 }
 void expBar() {
-  pushStyle();
-  fill(xpBarR, xpBarG, xpBarB);
-  rect(width / 2 - width/20, height / 5 + height / 2 + height / 5, width/10*exp/expToLevel, height / 50);
-  popStyle();
-  if(exp >= expToLevel) {
-    playerLevel = playerLevel + 1;
-    exp = 0;
-    expToLevel = expToLevel * (playerLevel*2);
+  if(mouseX > 200) {
+    pushStyle();
+    rect(mouseX + width/50, mouseY + height/50, width / 10, height / 50);
+    popStyle();
+    pushStyle();
+    fill(xpBarR, xpBarG, xpBarB);
+    rect(mouseX + width/50, mouseY + height/50, width/10*exp/expToLevel, height / 50);
+    popStyle();
+    if(exp >= expToLevel) {
+      playerLevel = playerLevel + 1;
+      exp = 0;
+      expToLevel = expToLevel * (playerLevel*2);
+    }
   }
 }
+
 void goldLevelExp() {
+  if(mouseX >200) {
   pushStyle();
-  textAlign(CENTER);
-  text("gold: " + gold,width/2, height/15);
-  text(exp + "/" + expToLevel,width / 2, height/3 + height/2 + 20);
-  text("Level: " + playerLevel, width/2, height/ 3 + height / 2);
+  text("gold: " + gold, mouseX + width/50, mouseY - height/60);
+  text(exp + "/" + expToLevel, mouseX + width/50, mouseY + height/60);
+  text("Level: " + playerLevel, mouseX + width/50, mouseY);
   popStyle();
   // text("length of bar: " + width/10, width/2, height/ 3 + height / 2);
-  pushStyle();
-  rect(width / 2 - width/20, height / 5 + height / 2 + height / 5, width/10, height / 50);
-  popStyle();
+  }
 }
