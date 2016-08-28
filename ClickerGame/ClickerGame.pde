@@ -11,6 +11,11 @@ int hoverText = 20;
 int xpBarR = 60, xpBarG = 80, xpBarB = 210;
 
 
+// sounds if you have error click on the menu called sketct --> import library --> add library --> searchBar: "sound" --> install: "Sound | Sound library based on MethCla for processing."
+import processing.sound.*;
+SoundFile file;
+
+
 // Upgrade cost + price vars - Bjørn
 int redUpgPrice = 1;
 int orangeUpgPrice = 10;
@@ -28,9 +33,12 @@ final int y = 1;
 
 
 void setup() {
-fullScreen();
-// size(1600, 960);
-surface.setResizable(true);
+  fullScreen();
+  //size(1600, 960);
+  surface.setResizable(true);
+  file = new SoundFile(this, "startSound.mp3");
+  file.play();
+  
 }
 
 void draw() {
