@@ -37,87 +37,11 @@ void draw() {
   
   // Background to be changed later :P - Bjørn
   background(51);
-  
-  // gold, level and exp - Bjørn
-  pushStyle();
-  textAlign(CENTER);
-  text("gold: " + gold,width/2, height/15);
-  text(exp + "/" + expToLevel,width / 2, height/3 + height/2 + 20);
-  text("Level: " + playerLevel, width/2, height/ 3 + height / 2);
-  popStyle();
-  // text("length of bar: " + width/10, width/2, height/ 3 + height / 2);
-  pushStyle();
-  rect(width / 2 - width/20, height / 5 + height / 2 + height / 5, width/10, height / 50);
-  popStyle();
-   
-  // Scaleable exp bar - Moller
-  pushStyle();
-  fill(xpBarR, xpBarG, xpBarB);
-  rect(width / 2 - width/20, height / 5 + height / 2 + height / 5, width/10*exp/expToLevel, height / 50);
-  popStyle();
-  if(exp >= expToLevel) {
-    playerLevel = playerLevel + 1;
-    exp = 0;
-    expToLevel = expToLevel * (playerLevel*2);
-    }
-  
-  
-  // Visible Menu with text and buttons - Bjørn
-  pushStyle();
-  fill(255, 0, 0); // Red
-  rect(0, 0, upgradeWidth, height / 10);
-  popStyle();
-  
-  pushStyle();
-  fill(255, 128, 0); // Orange
-  rect(0, height / 10, upgradeWidth, height / 10);
-  popStyle();
-  
-  pushStyle();
-  fill(255, 255, 0); // Yellow
-  rect(0, height / 10 * 2, upgradeWidth, height / 10);
-  popStyle();
-  
-  pushStyle();
-  fill(0, 255, 0); // Green
-  rect(0, height / 10*3, upgradeWidth, height / 10);
-  popStyle();
-  
-  pushStyle();
-  fill(0, 255, 255); // Turquoise
-  rect(0, height / 10*4, upgradeWidth, height / 10);
-  popStyle();
-  
-  pushStyle();
-  fill(0, 0, 255); // Blue
-  rect(0, height / 10*5, upgradeWidth, height / 10);
-  popStyle();
-  
-  pushStyle();
-  fill(127, 0, 255); // Deep Purple
-  rect(0, height / 10*6, upgradeWidth, height / 10);
-  popStyle();
-  
-  pushStyle();
-  fill(255, 0, 255); // Purple
-  rect(0, height / 10*7, upgradeWidth, height / 10);
-  popStyle();
-  
-  pushStyle();
-  fill(255, 0, 127); // Pink
-  rect(0, height / 10*8, upgradeWidth, height / 10);
-  popStyle();
-  
-  pushStyle();
-  fill(128, 128, 128); // Grey
-  rect(0, height / 10*9, upgradeWidth, height / 10);
-  popStyle();
-  // Buy exp button.
-  pushStyle();
-  textSize(24);
-  text("Buy Exp", upgradeWidth / 3.8, (height / 10*9) + height / 10 / 2 + 6);
-  popStyle();
-  
+  expBar();
+  goldLevelExp();
+  visMenu();
+  hoverMenu();
+  /*
   // Hover over - Bjørn
   if (mouseX <= upgradeWidth && mouseY <= (height / 10*1)) {
     pushStyle();
@@ -337,7 +261,7 @@ void draw() {
       popStyle();  
     }
   }
-  
+  */
   
 }
 // All Click related actions - Bjørn
@@ -403,4 +327,30 @@ void mousePressed() {
     gold = gold - 1000;
     exp = exp + 50 * playerLevel;
   }  
+}
+
+
+
+void expBar() {
+  pushStyle();
+  fill(xpBarR, xpBarG, xpBarB);
+  rect(width / 2 - width/20, height / 5 + height / 2 + height / 5, width/10*exp/expToLevel, height / 50);
+  popStyle();
+  if(exp >= expToLevel) {
+    playerLevel = playerLevel + 1;
+    exp = 0;
+    expToLevel = expToLevel * (playerLevel*2);
+  }
+}
+void goldLevelExp() {
+  pushStyle();
+  textAlign(CENTER);
+  text("gold: " + gold,width/2, height/15);
+  text(exp + "/" + expToLevel,width / 2, height/3 + height/2 + 20);
+  text("Level: " + playerLevel, width/2, height/ 3 + height / 2);
+  popStyle();
+  // text("length of bar: " + width/10, width/2, height/ 3 + height / 2);
+  pushStyle();
+  rect(width / 2 - width/20, height / 5 + height / 2 + height / 5, width/10, height / 50);
+  popStyle();
 }
