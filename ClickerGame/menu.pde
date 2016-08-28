@@ -179,6 +179,7 @@ public void hoverText() {
       popStyle();
     }
   }
+  // blue
   else if(mouseX <= upgradeWidth && mouseY <= (height / 10*6)) {
     pushStyle();
     textSize(hoverText);
@@ -199,6 +200,7 @@ public void hoverText() {
       popStyle();
     }
   }
+  // Deep purple
   else if(mouseX <= upgradeWidth && mouseY <= (height / 10*7)) {
     pushStyle();
     textSize(hoverText);
@@ -219,6 +221,7 @@ public void hoverText() {
       popStyle();
     }
   }
+  // 
   else if(mouseX <= upgradeWidth && mouseY <= (height / 10*8)) {
     pushStyle();
     textSize(hoverText);
