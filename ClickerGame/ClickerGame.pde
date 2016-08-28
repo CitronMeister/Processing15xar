@@ -138,7 +138,7 @@ void expBar() {
 void goldLevelExp() {
   if(mouseX >200) {
   pushStyle();
-  text("gold: " + gold, mouseX + width/50, mouseY - height/60);
+  text("Gold: " + gold, mouseX + width/50, mouseY - height/60);
   text(exp + "/" + expToLevel, mouseX + width/50, mouseY + height/60);
   text("Level: " + playerLevel, mouseX + width/50, mouseY);
   popStyle();
