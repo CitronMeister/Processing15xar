@@ -37,8 +37,8 @@ void draw() {
   
   // Background to be changed later :P - Bjørn
   background(51);
-  expBar();
   goldLevelExp();
+  expBar();
   visMenu();
   hoverMenu();
   hoverText();   
