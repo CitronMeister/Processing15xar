@@ -68,6 +68,7 @@ void mousePressed() {
     f.ballX = 0 - f.diameter;
     p.ballY = random(height);
     f.ballY = random(height);
+    b.ballDia = 25;
     
   }
 
