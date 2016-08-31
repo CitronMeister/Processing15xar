@@ -2,9 +2,8 @@ public class Food {
 int diameter = 25;
 float ballX = 0 - diameter;
 float ballY = random(height);
-
-  void display(){
-    
+float randomizeSpeed = random(15, 50);
+  void display(){    
     pushStyle();
     noStroke();
     fill(0,255,0);
@@ -13,7 +12,7 @@ float ballY = random(height);
   }
   void calc() {
     if (ballX < width + diameter) {
-      ballX = ballX + 5;
+      ballX = ballX + randomizeSpeed;
     }
     else if (ballX >= width + diameter) {
       ballX = 0 - diameter;
