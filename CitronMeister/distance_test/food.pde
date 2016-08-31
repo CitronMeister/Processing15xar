@@ -2,7 +2,7 @@ public class Food {
 int diameter = 25;
 float ballX = 0 - diameter;
 float ballY = random(height);
-float randomizeSpeed = random(15, 50);
+float randomizeSpeed = random(15, 40);
   void display(){    
     pushStyle();
     noStroke();

@@ -38,8 +38,15 @@ float distance2 = dist(p.ballX, p.ballY, b.ballX - b.ballDia, mouseY);
       f.ballX = 0 - f.diameter;   
       f.ballY = random(height);
       score = score + 1;
-      f.randomizeSpeed = random(5, 50);
+      f.randomizeSpeed = random(5, 40);
       }
+    if(f.ballX > b.ballX) {
+      f.randomizeSpeed = random(5, 40);       
+    }
+    if(p.ballX > b.ballX) {
+      p.randomizeSpeed = random(15, 40);
+    
+    }
   }
   // tester om den røde "gift" rammer spilleren.
   if(distance2 <= (p.diameter + b.ballDia)/2) {
@@ -61,6 +68,7 @@ void mousePressed() {
     f.ballX = 0 - f.diameter;
     p.ballY = random(height);
     f.ballY = random(height);
+    
   }
 
 }
