@@ -12,6 +12,7 @@ boolean up, down, left, right;
 int boost, boostRecharging;
 boolean boostActive;
 int maxBoost = 200;
+int boostEat = 0;
 
 //Variables for the boostbar
 float BoostRectX = 400, BoostRectY = 565, BoostRectWidth, BoostRectHeight= 20, BoostRectColor1 = 0, BoostRectColor2 = 255, BoostRectColor3 = 0;
@@ -37,7 +38,7 @@ void setup() {
   //Varialbe declarations
   ballXCord = width/2;
   ballYCord = height/2;
-  ballDia = 40;
+  ballDia = 7;
   speedX = 5;
   speedY = 5;
   boost = 120;
@@ -107,6 +108,7 @@ void moveBallAndColor() {
     speedY = boostSpeed;
     speedX = boostSpeed;
     boost -= 0.5;
+    boostEat++;
   }
   else {
     speedY = standardSpeed;
@@ -167,6 +169,9 @@ void Restrictions() {
   if (ballXCord + ballDia/2 > width) {
     ballXCord -= speedX;  
   }
+  if (ballDia < 6) {
+    ballDia = 5;  
+  }
 }
 
 //Adding fuel to the boost, with a simple incrimention
@@ -176,6 +181,11 @@ void useBoost() {
       boost ++;
     }
     boostRecharging = 0;
+  }
+  //Make ball smaller when boost is used
+  if (boostEat > 30) {
+    ballDia--;
+    boostEat = 0;
   }
   textAlign(CENTER);
   textSize(14);  
