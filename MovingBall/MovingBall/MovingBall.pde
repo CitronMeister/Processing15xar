@@ -1,6 +1,6 @@
 /*
 To do:  Add small balls randomly spawned to "eat". Add score and time to left and right side of buttonbox
-*/
+ */
 
 //Variables for the ball size, -color and speed
 int ballXCord, ballYCord, ballDia, speedX, speedY, colorOption1 = 255, colorOption2 = 255, colorOption3 = 255, boostSpeed = 11, standardSpeed = 5;
@@ -29,7 +29,7 @@ float foodX, foodY, foodDia = 15, foodColor1 = 242, foodColor2 = 255, foodColor3
 
 
 //Distance
-float distance = sqrt(pow(ballXCord-foodX,2)+ pow(ballYCord-foodY,2));
+float distance = sqrt(pow(ballXCord-foodX, 2)+ pow(ballYCord-foodY, 2));
 
 
 void setup() {
@@ -38,7 +38,7 @@ void setup() {
   //Varialbe declarations
   ballXCord = width/2;
   ballYCord = height/2;
-  ballDia = 7;
+  ballDia = 30;
   speedX = 5;
   speedY = 5;
   boost = 120;
@@ -57,8 +57,6 @@ void draw() {
   ButtonBox();
   timePlayed();
   Food();
-  
-  
 }
 
 
@@ -103,14 +101,13 @@ void moveBallAndColor() {
     colorOption3 = 132;
   }
   //Boost part
-    
+
   if (boostActive == true && boost > 0 ) {
     speedY = boostSpeed;
     speedX = boostSpeed;
     boost -= 0.5;
     boostEat++;
-  }
-  else {
+  } else {
     speedY = standardSpeed;
     speedX = standardSpeed;
     boostActive = false;
@@ -123,78 +120,77 @@ void keyPressed() {
   if (key == ' ' && boost > 0) {
     boostActive = true;
   }
-   if (key == 'w' || key == 'W') {
-    up = true;  
+  if (key == 'w' || key == 'W') {
+    up = true;
   }
-   if (key == 's' || key == 'S') {
+  if (key == 's' || key == 'S') {
     down = true;
   }
-   if (key == 'a' || key == 'A') {
+  if (key == 'a' || key == 'A') {
     left = true;
   }
-   if (key == 'd' || key == 'D') {
+  if (key == 'd' || key == 'D') {
     right = true;
   }
 }
 //Checking for released keys
 void keyReleased() {
-   if (key == 'w' || key == 'W') {
-    up = false;  
+  if (key == 'w' || key == 'W') {
+    up = false;
   }
-   if (key == 's' || key == 'S') {
+  if (key == 's' || key == 'S') {
     down = false;
   }
-   if (key == 'a' || key == 'A') {
+  if (key == 'a' || key == 'A') {
     left = false;
   }
-   if (key == 'd' || key == 'D') {
+  if (key == 'd' || key == 'D') {
     right = false;
   }
   if (key == ' ') {
-    boostActive = false;  
+    boostActive = false;
   }
-
 }
 //Ensures that the ball can't leave the given perimiter
 void Restrictions() {
   if (ballYCord - ballDia/2 < 0) {
-    ballYCord += speedY;  
+    ballYCord += speedY;
   }
   if (ballYCord + ballDia/2 > height-65) {
-    ballYCord -= speedY;  
+    ballYCord -= speedY;
   }
   if (ballXCord - ballDia/2 < 0) {
     ballXCord += speedX;
   }
   if (ballXCord + ballDia/2 > width) {
-    ballXCord -= speedX;  
+    ballXCord -= speedX;
   }
   if (ballDia < 6) {
-    ballDia = 5;  
+    ballDia = 5;
   }
 }
 
 //Adding fuel to the boost, with a simple incrimention
 void useBoost() {
-  if (boostRecharging > 20) {
+  if (boostRecharging > 15) {
     if (boost < maxBoost) {
-      boost ++;
+      boost++;
     }
     boostRecharging = 0;
   }
   //Make ball smaller when boost is used
   if (boostEat > 30) {
-    ballDia--;
+    ballDia-=2;
     boostEat = 0;
   }
   textAlign(CENTER);
   textSize(14);  
   text("Boost: " + boost, width/2, height-45);
-   //Also added the "Score" and "Time" here, to avoid the opacity on the text
+  //Also added the "Score" and "Time" here, to avoid the opacity on the text
   text("Size: " + ballDia, 100, height-45);
   //Displayed how many minutes and seconds that the program has run in.
   if (minutGone == false) {
-  text("Time played: "+ timePlayedSeconds + timeUnit, 750, height-45);
+    text("Time played: "+ timePlayedSeconds + timeUnit, 750, height-45);
   } else {
     text("Time played: "+ timePlayedMinutes + timeUnit + " and " + timePlayedSeconds + " seconds", 750, height-45);
   }
@@ -220,15 +216,15 @@ void timePlayed() {
 }
 
 void Food() {
-  distance = sqrt(pow(ballXCord-foodX,2)+ pow(ballYCord-foodY,2));
+  distance = sqrt(pow(ballXCord-foodX, 2)+ pow(ballYCord-foodY, 2));
   fill(foodColor1, foodColor2, foodColor3);
   ellipse(foodX, foodY, foodDia, foodDia);
   fill(0);
-  
+
   if (distance < ballDia/2 + foodDia/2) {
     foodX = random(0+foodDia, width-foodDia);
     foodY = random(0+foodDia, height-foodDia-65);
     ballDia++;
-    boost += 2;
+    boost += 3;
   }
 }
