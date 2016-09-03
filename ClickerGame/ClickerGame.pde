@@ -11,7 +11,7 @@ int hoverText = 20;
 int xpBarR = 60, xpBarG = 80, xpBarB = 210;
 
 
-// sounds if you have error click on the menu called sketch --> import library --> add library --> searchBar: "sound" --> install: "Sound | Sound library based on MethCla for processing."
+// sounds - if you have error click on the menu called sketch --> import library --> add library --> searchBar: "sound" --> install: "Sound | Sound library based on MethCla for processing." - Bjørn
 import processing.sound.*;
 SoundFile file;
 
@@ -61,7 +61,7 @@ void mousePressed() {
     exp = exp + 1 + expBonus;
   }
   
-// All upgrade prices and multipliers
+// All upgrade prices and multipliers - Bjørn
   else if(mouseX <= upgradeWidth && mouseY <= (height / 10*1) && gold >= redUpgPrice) {
     gold = gold - redUpgPrice;
     expBonus++;
