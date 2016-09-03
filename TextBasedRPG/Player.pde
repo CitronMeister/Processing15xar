@@ -1,5 +1,5 @@
 public class Player {
-  int healthPoints;
+  int healthPoints = 10;
   int currentHealth;
   int gold;
   int mana;
