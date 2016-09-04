@@ -21,10 +21,6 @@ void draw() {
   // intro stuff
   BGC.introBackground();
   intro.intro0();
-  
-  
-  
-  
 }
 
 
