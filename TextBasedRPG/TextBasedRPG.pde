@@ -2,22 +2,34 @@
 BackgroundController BGC;
 Player player;
 Shop shop;
+characterCreation CC;
+Intro intro;
 int mouseClicked = 0;
 
 void setup() {
   fullScreen();
+  intro = new Intro();
+  CC = new characterCreation();
   player = new Player();
   BGC = new BackgroundController();
   shop = new Shop();
   player.playerHealth();
 }
+
+
 void draw() {
-  background(0);
-  text("Health: " + player.healthPoints, width/2, height/2);
-  if(mouseClicked == 1) {
-    mousepress();
-  }
+  // intro stuff
+  BGC.introBackground();
+  intro.intro0();
+  
+  
+  
+  
 }
+
+
+
+
 // for testing variables :P
 void mousePressed() {
   mouseClicked = 1;
@@ -25,7 +37,7 @@ void mousePressed() {
 void mousepress() {
   //player.healthPoints = player.healthPoints + 1;
   //BGC.introBackground();
-  shop.displayShop();
-  
-
+  //shop.displayShop();
+  BGC.selectClassBackground();
+  CC.selectGender();
 }
