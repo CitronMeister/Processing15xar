@@ -1,11 +1,13 @@
 Food f;
 Ball1 b;
 Poison p;
+import processing.sound.*;
 // points og en bool på hvorvidt spilleren er i live.
 int score = 0;
 boolean gameLive = true;
-
+SoundFile fatality;
 void setup() {
+  fatality = new SoundFile(this, "fatality.mp3");
   // fullscreen og de classes jeg benytter.
   fullScreen();
   f = new Food();
@@ -52,6 +54,7 @@ float distance2 = dist(p.ballX, p.ballY, b.ballX - b.ballDia, mouseY);
   if(distance2 <= (p.diameter + b.ballDia)/2) {
     background(0);
     gameLive = false;
+    fatality.play();
     pushStyle();
     textAlign(CENTER);
     textSize(height/20);
