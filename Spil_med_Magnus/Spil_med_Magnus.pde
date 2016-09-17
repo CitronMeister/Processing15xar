@@ -1,16 +1,17 @@
-Me m;
-Shot s;
+player p = new player();
+shot s = new shot();
+keyControl k = new keyControl();
 
 void setup() {
-  s = new Shot(width/2,height/2);
-  m = new Me(width/2,height/2,20);
-  size(500,500);
-  frameRate(60);
+  size(500, 500);
 }
 
 void draw() {
   background(0);
-  m.display();
-  m.move();
-  //s.
+  p.display();
+  s.display();
+  k.booleans();
+  k.keyReleased();
+  k.move();
+  text(k.speed,100,100);
 }
