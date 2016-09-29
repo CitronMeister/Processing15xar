@@ -7,6 +7,7 @@ startup start = new startup();
 //drawColor drawColor = new drawColor();
 //+/- size
 //Erase
+drawColor drawColor = new drawColor();
 clearBoard clear = new clearBoard();
 
 
@@ -17,13 +18,13 @@ void setup() {
 }
 
 void draw() {
-  //gui.drawGUI();
-  mouseCord.mouseCord();
-  clear.clearFirstPress();
+    clear.clearFirstPress();
   clear.drawBox();
   clear.hoverBox();
   clear.boxPressed();
-  
+  mouseCord.mouseCord();
+  drawColor.drawBox();
+  drawColor.mouseClicked();
   
   
   //fill(0);
