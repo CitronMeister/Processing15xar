@@ -18,7 +18,8 @@ void setup() {
 void draw() {
   //gui.drawGUI();
   mouseCord.mouseCord();
-  clear.mouseClick();
+  clear.clearFirstPress();
+  clear.drawBox();
   
   
   
