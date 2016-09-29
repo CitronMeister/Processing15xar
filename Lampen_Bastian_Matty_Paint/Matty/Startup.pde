@@ -1,3 +1,4 @@
+//Starts the program with background and writes the welcome text
 class startup {
   void startScreen() {
     pushStyle();

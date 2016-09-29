@@ -1,5 +1,6 @@
 //Global Variables
 //drawGUI gui = new drawGUI();
+//The classes are added
 mouseCordinate mouseCord = new mouseCordinate();
 startup start = new startup();
 
@@ -20,6 +21,7 @@ void draw() {
   mouseCord.mouseCord();
   clear.clearFirstPress();
   clear.drawBox();
+  clear.hoverBox();
   
   
   
