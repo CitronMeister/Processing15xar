@@ -1,5 +1,5 @@
 //Global Variables
-//drawGUI gui = new drawGUI();
+drawGUI gui = new drawGUI();
 mouseCordinate mouseCord = new mouseCordinate();
 startup start = new startup();
 
@@ -11,6 +11,7 @@ void setup() {
 }
 
 void draw() {
+  gui.drawGUI();
   mouseCord.mouseCord();
 
 }
