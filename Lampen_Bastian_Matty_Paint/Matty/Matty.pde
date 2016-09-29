@@ -1,7 +1,12 @@
 //Global Variables
-drawGUI gui = new drawGUI();
+//drawGUI gui = new drawGUI();
 mouseCordinate mouseCord = new mouseCordinate();
 startup start = new startup();
+
+//drawColor drawColor = new drawColor();
+//+/- size
+//Erase
+clearBoard clear = new clearBoard();
 
 
 void setup() {
@@ -11,7 +16,13 @@ void setup() {
 }
 
 void draw() {
-  gui.drawGUI();
+  //gui.drawGUI();
   mouseCord.mouseCord();
-
+  clear.mouseClick();
+  
+  
+  
+  
+  //fill(0);
+  //text("Debug", 100, 100);
 }
