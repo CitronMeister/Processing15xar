@@ -20,9 +20,9 @@ class clearBoard {
     textAlign(CENTER);
     textSize(30);
     text("Clear\npainting", width/(6*2), height/2 + height/4 + height/(4*2)-10);
-    popStyle();  
+    popStyle();
   }
-  
+
   void hoverBox() {
     //If the mouse is inside the frame of the box, the strokeWeight is enlarged, indicating that it is hovered
     if (mouseCord.xCord > 0 && mouseCord.xCord < width/6 && mouseCord.yCord > height/2 + height/4) {
@@ -37,6 +37,11 @@ class clearBoard {
       textSize(30);
       text("Clear\npainting", width/(6*2), height/2 + height/4 + height/(4*2)-10);
       popStyle();
+    }
+  }
+  void boxPressed() {
+    if (mouseCord.xCord > 0 && mouseCord.xCord < width/6 && mouseCord.yCord > height/2 + height/4 && mousePressed == true) {
+      background(255);
     }
   }
 }

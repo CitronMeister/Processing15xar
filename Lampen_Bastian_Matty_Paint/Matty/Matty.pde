@@ -22,7 +22,7 @@ void draw() {
   clear.clearFirstPress();
   clear.drawBox();
   clear.hoverBox();
-  
+  clear.boxPressed();
   
   
   
