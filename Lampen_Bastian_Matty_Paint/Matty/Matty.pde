@@ -4,10 +4,10 @@
 mouseCordinate mouseCord = new mouseCordinate();
 startup start = new startup();
 
-//drawColor drawColor = new drawColor();
 //+/- size
 //Erase
 drawColor drawColor = new drawColor();
+brushSize size = new brushSize();
 clearBoard clear = new clearBoard();
 
 
@@ -18,14 +18,15 @@ void setup() {
 }
 
 void draw() {
-    clear.clearFirstPress();
+  clear.clearFirstPress();
   clear.drawBox();
   clear.hoverBox();
   clear.boxPressed();
   mouseCord.mouseCord();
   drawColor.drawBox();
   drawColor.mouseClicked();
-  
+  size.drawBox();
+  size.preview();
   
   //fill(0);
   //text("Debug", 100, 100);
