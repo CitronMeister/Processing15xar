@@ -24,7 +24,7 @@ void draw() {
   clear.boxPressed();
   mouseCord.mouseCord();
   drawColor.drawBox();
-  drawColor.mouseClicked();
+  drawColor.mouseOver();
   size.drawBox();
   size.preview();
   

@@ -9,4 +9,3 @@ class startup {
     popStyle();
   }
 }
-}
