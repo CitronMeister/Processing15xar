@@ -1,5 +1,6 @@
 class clearBoard {
   int mouseClicked = 0;
+  boolean sound = true;
   boolean started = false;
   //Removes the "Welcome to paint.HTX thing
   void clearFirstPress() {
@@ -44,6 +45,17 @@ class clearBoard {
   void boxPressed() {
     if (mouseCord.xCord > 0 && mouseCord.xCord < width/6 && mouseCord.yCord > height/2 + height/4 && mousePressed == true) {
       background(255);
+      while (sound == true) {
+        sound = false;
+        click.play();
+        break;
+      }
+    }
+    //Ensure sound isn't played multiple times if mouse is pressed and held on the button 
+    if (!(mouseCord.xCord > 0 && mouseCord.xCord < width/6 && mouseCord.yCord > height/2 + height/4)) {
+      sound = true;
+      
+      //Add inc so sound is played if button is pressed while mouse is inside the button
     }
   }
 }
