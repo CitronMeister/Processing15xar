@@ -1,9 +1,11 @@
 class clearBoard {
   int mouseClicked = 0;
+  boolean started = false;
   //Removes the "Welcome to paint.HTX thing
   void clearFirstPress() {
     if (mousePressed == true) {
       mouseClicked++;
+      started = true;
     }
     if (mouseClicked > 0) {
       background(255);
@@ -25,7 +27,7 @@ class clearBoard {
 
   void hoverBox() {
     //If the mouse is inside the frame of the box, the strokeWeight is enlarged, indicating that it is hovered
-    if (mouseCord.xCord > 0 && mouseCord.xCord < width/6 && mouseCord.yCord > height/2 + height/4) {
+    if (mouseCord.xCord > 0 && mouseCord.xCord < width/6 && mouseCord.yCord > height/2 + height/4 && started == true) {
       pushStyle();
       fill(150);
       strokeWeight(5);

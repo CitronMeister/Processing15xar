@@ -14,7 +14,7 @@ class drawColor {
   void mouseOver() {
     
     //if you mouse over the popup window when its popup keep the window up.
-    if (mouseover == 1 && mouseCord.xCord > width/6 && mouseCord.xCord < (width/6)*2 && mouseCord.yCord > 0 && mouseCord.yCord < height/2) {
+    if (mouseover == 1 && mouseCord.xCord > width/6 && mouseCord.xCord < (width/6)*2 && mouseCord.yCord > 0 && mouseCord.yCord < height/2 && clear.started == true) {
       popup = 1;
     } else {
       mouseover = 0;
@@ -22,7 +22,7 @@ class drawColor {
     }
 
     //if mouse is insite the "color" area make a popup window
-    if (mouseCord.xCord > 0 && mouseCord.xCord < width/6 && mouseCord.yCord > 0 && mouseCord.yCord < height/4) {
+    if (mouseCord.xCord > 0 && mouseCord.xCord < width/6 && mouseCord.yCord > 0 && mouseCord.yCord < height/4 && clear.started == true) {
       mouseover = 1;
       popup = 1;
       pushStyle();
