@@ -45,11 +45,11 @@ class clearBoard {
   void boxPressed() {
     if (mouseCord.xCord > 0 && mouseCord.xCord < width/6 && mouseCord.yCord > height/2 + height/4 && mousePressed == true) {
       background(255);
-      while (sound == true) {
+      /*while (sound == true) {
         sound = false;
         click.play();
         break;
-      }
+      }*/
     }
     //Ensure sound isn't played multiple times if mouse is pressed and held on the button 
     if (!(mouseCord.xCord > 0 && mouseCord.xCord < width/6 && mouseCord.yCord > height/2 + height/4)) {
