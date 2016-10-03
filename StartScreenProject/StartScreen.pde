@@ -15,8 +15,9 @@ class StartScreen {
   
   void menu() {
     //Checks if the Logo's are clicked.
-    if(mouseX > 10 && mouseX < 110 && mouseY > 10 && mouseY < 110 && mousePressed){
+    if(mouseX > 10 && mouseX < 110 && mouseY > 10 && mouseY < 110 && mousePressed && p.paintOn == false){
       p.paintOn = true;
+      background(255);
     }
   }
 }
