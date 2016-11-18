@@ -24,5 +24,13 @@ function Snake() {
     this.x += this.xSpeed * scl;
     this.y += this.ySpeed * scl;
   }
+  this.death = function() {
 
+    if (this.y > height || this.y < 0 || this.x > width || this.x < 0) {
+      console.log("You have died - Restarting the game");
+      this.x = 0;
+      this.y = 0;
+      this.dir(0, 0);
+    }
+  }
 }
