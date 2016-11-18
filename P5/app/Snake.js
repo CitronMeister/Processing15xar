@@ -1,6 +1,3 @@
-
-
-
 function Snake() {
   this.x = 0;
   this.y = 0;
@@ -10,8 +7,8 @@ function Snake() {
 
   //Sets the direction of the Snake
   this.dir = function(x, y) {
-    s.x = xSpeed;
-    s.y = ySpeed;
+    this.xSpeed = x;
+    this.ySpeed = y;
   }
 
   //Displays the Snake
@@ -24,7 +21,8 @@ function Snake() {
     }
     //Updates the location and size of the Snake
   this.update = function() {
-
+    this.x += this.xSpeed * scl;
+    this.y += this.ySpeed * scl;
   }
 
 }
