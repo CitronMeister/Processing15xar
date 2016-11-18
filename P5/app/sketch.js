@@ -1,6 +1,8 @@
 var s;
 var scl = 20;
 
+var food;
+
 function setup() {
   createCanvas(600, 600);
   frameRate(7);
@@ -13,12 +15,21 @@ function draw() {
   s.display();
   s.update();
   s.death();
+  pickLocation();
+  
+
+  
 }
 
 
 function pickLocation() {
   var cols = floor((width / scl));
   var rows = floor((height / scl));
+  
+  
+  food = createVector(floor(random(cols)), floor(random(rows)));
+  food.mult(scl);
+  
 }
 
 

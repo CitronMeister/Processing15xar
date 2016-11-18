@@ -11,6 +11,18 @@ function Snake() {
     this.ySpeed = y;
   }
 
+  //Function to test if the food has been eaten
+  /*this.eat = function(pos) {
+    if() {
+      return true;
+    }else {
+      return false;
+    }
+    
+  }*/
+
+
+
   //Displays the Snake
   this.display = function() {
       push;
