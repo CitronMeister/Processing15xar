@@ -17,6 +17,6 @@ function snake() {
   this.y = y;
   this.xSpeed = 0;
   this.ySpeed = 0;
-  this.size = size[];
+  this.size = [];
   
 }
