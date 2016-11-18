@@ -6,13 +6,11 @@ function setup() {
 
   s = new Snake();
 
-
-
 }
 
 function draw() {
   background(70);
-
+  s.display();
 }
 
 function pickLocation() {
