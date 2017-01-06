@@ -10,13 +10,13 @@ class Movement {
     if (right) {
       player.x = constantX + sin(angle) * scale;
       player.y = constantY + cos(angle) * scale;
-      angle += speed;
+      angle -= speed;
     }
     
     if (left) {
       player.x = constantX + sin(angle) * scale;
       player.y = constantY + cos(angle) * scale;
-      angle -= speed;
+      angle += speed;
     }
   }
 }
