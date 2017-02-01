@@ -1,29 +1,18 @@
 class Line {
   /*-------------------- Position --------------------*/
-  float xS = width/2; //The starting point.
-  float y = height/2; //Since i want the line to be horizontal, i need both points to have the same y-value.
+  float xS = random(width); //The starting point.
+  float y = random(height); //Since i want the line to be horizontal, i need both points to have the same y-value.
   float xE = xS+1; //The ending point, which needs to have a higher value than the starting point.
+  color c;
 
   float randomCol = random(255);
   float randomCol2 = random(255);
 
-  /*--------- Array for all x-values -----------*/
-  float[] linesXStart = new float[lines.length];
-  float[] linesXEnd = new float[lines.length];
-  
-  
-  /*-------------- Can The Line Spawn? ----------------*/
-  boolean spawning() { //TEMPORARY content of this boolean. The coding will be included later.
-    return true;
-  }
-  
   /*--------------------- Display ---------------------*/
   void display() {
-    if (spawning()) { //If the lines aren't inside of eachother, spawning() will return true, so the line can spawn.
-      stroke(randomCol, randomCol2, randomCol, 150); //Random colors, and an alpha-value to make the line more transparent. This makes it possible to check, if two lines are inside eachother.
-      strokeWeight(2);
-      line(xS, y, xE, y);
-    }
+    stroke(c); //Random colors, and an alpha-value to make the line more transparent. This makes it possible to check, if two lines are inside eachother.
+    strokeWeight(2);
+    line(xS, y, xE, y);
   }
 
   /*------------------ Movement/Grow -------------------*/
